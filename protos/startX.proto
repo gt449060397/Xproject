@@ -1,0 +1,30 @@
+
+
+
+syntax="proto3";
+
+package Xproject;
+
+//Interface exported by the server
+
+service StartX
+{
+      rpc GetCoreStatus(CoreStatusRequest) returns (CoreStatusReply){}
+}
+
+
+//
+message CoreStatusRequest
+{
+  string name=1;
+}
+
+
+
+//
+message CoreStatusReply
+{
+  string message=1;
+}
+
+
