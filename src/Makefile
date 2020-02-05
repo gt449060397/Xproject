@@ -11,7 +11,7 @@ BIT=$(shell getconf LONG_BIT)
 OUTPUTFILE=Xproject_Core_$(VERSION)_CENTOS$(OSV)_x86_$(BIT)bit_Bin.tar.gz
 
 #source code
-CC_SRC=$(wildcard grpcproto/*.cc)
+CC_SRC=$(wildcard grpcproto/*.cc calcucomponents/*.cc calcucomponents/columns/*.cc calcucomponents/connectors/*.cc calcucomponents/crossbeams/*.cc calcucomponents/embedded/*.cc calcucomponents/gums/*.cc calcucomponents/loads/*.cc calcucomponents/panels/*.cc)
 
 #object
 CC_OBJ=$(patsubst %.cc, ./build/%.o, $(CC_SRC))
