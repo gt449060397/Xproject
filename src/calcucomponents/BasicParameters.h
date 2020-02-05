@@ -62,25 +62,8 @@ class BasicParameters
 
 		BasicParameters(double w0,DesignYears designYears,SiteType siteType,CalculateArea calArea,SeismicFortification sF,SeismicSiteType sST,WindLoadCalMethod wLCM,double wLNV,double u_sl=0):m_w0(w0),m_eDesignYears(designYears),m_eSiteType(siteType),m_eCalArea(calArea),m_eSeismicFort(sF),m_eSeismicSiteType(sST),m_eWindCalMethod(wLCM),m_WindLoadNominalValue(wLNV),m_u_sl(u_sl)
 	{
-		switch(calArea)
-		{
-			case Corner:
-				m_u_sl=1.6;
-				break;
-			case Wall:
-				m_u_sl=1.2;
-				break;
-			case Other:
-				m_u_sl=u_sl;
-				break;
-			default:
-				m_u_sl=1.0;
-		}
+		
 	}
-
-
-
-
 
 		//Get method
 		double Getw0()const{return m_w0;}

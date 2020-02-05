@@ -17,7 +17,7 @@ double WindLoad::CalNominalValue()
 	//2 gao du bian hua xi shu
 	CalHeightVariationCoefficient();
 
-	double nominalValue=m_beta_gz*m_u_z*m_parameters.Getu_sl()*m_parameters.Getw0();
+	double nominalValue=m_beta_gz*m_u_z*Calu_sl(m_calPart,m_area)*m_parameters.Getw0();
 	switch(m_parameters.GetWindLoadCalMethod())
 	{
 		case BasicParameters::LOADCODE:
@@ -111,4 +111,78 @@ double WindLoad::CalTruncatedHeight()
 	return truncatedHeight;
 }
 
+double WindLoad::Calu_sl(const CalPart calPart,double area)
+{
+	double u_sl=0;
+
+	switch(calPart)
+	{
+		case PANEL:
+			u_sl=Calu_sl_panel();
+			break;
+		case SUPPORTSTUCTURE:
+			u_sl=Calu_sl_supportStucture(area);
+			break;
+		default:
+			u_sl=1.0;
+	}
+
+	return u_sl;
+
+
+}
+
+double WindLoad::Calu_sl_panel()
+{
+	double u_sl=0;
+	switch(m_parameters.GetCalArea())
+	{
+		case BasicParameters::Corner:
+			u_sl=1.6;
+			break;
+		case BasicParameters::Wall:
+			u_sl=1.2;
+			break;
+		case BasicParameters::Other:
+			u_sl=m_parameters.Getu_sl();
+			break;
+		default:
+			u_sl=1.0;
+	}
+	return u_sl;
+}
+
+double WindLoad::Calu_sl_supportStucture(double area)
+{
+	double u_sl=0;
+	switch(m_parameters.GetCalArea())
+	{
+		case BasicParameters::Corner:
+			u_sl=1.4;
+			break;
+		case BasicParameters::Wall:
+			u_sl=1.0;
+			break;
+		case BasicParameters::Other:
+			return u_sl=m_parameters.Getu_sl();
+			break;
+		default:
+			u_sl=1.0;
+	}
+	if(area<=1)
+	{
+		u_sl*=1.0;
+
+	}
+	else if(area>1&&area<25)
+	{
+		u_sl=u_sl+(0.8*u_sl-u_sl)*log(area)/1.4;
+	}
+	else
+	{
+		u_sl*=0.8;
+	}
+	
+	return u_sl+0.2;
+}
 

@@ -8,8 +8,14 @@
 /home/gongtao/Xproject/src/calcucomponents/panels/Panel.h
 /home/gongtao/Xproject/src/calcucomponents/panels/GlassPanel.h
 /home/gongtao/Xproject/src/calcucomponents/CalculateItem.h
-/home/gongtao/Xproject/src/calcucomponents/loads/WindLoad.cc
+/home/gongtao/Xproject/src/calcucomponents/loads/LoadCombination.h
 /home/gongtao/Xproject/src/calcucomponents/loads/WindLoad.h
+/home/gongtao/Xproject/src/calcucomponents/loads/WindLoad.cc
+/home/gongtao/Xproject/src/calcucomponents/loads/SeismicEffect.cc
+/home/gongtao/Xproject/src/calcucomponents/loads/SeismicEffect.h
+/home/gongtao/Xproject/src/calcucomponents/loads/DeadLoad.h
+/home/gongtao/Xproject/src/calcucomponents/loads/LoadCombination.cc
+/home/gongtao/Xproject/src/calcucomponents/BasicParameters.h
 /home/gongtao/Xproject/protos/startX.pb.cc
 /home/gongtao/Xproject/protos/startX.pb.h
 /home/gongtao/Xproject/protos/startX.grpc.pb.cc

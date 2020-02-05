@@ -22,8 +22,8 @@ class Panel:public CalculateItem
 	
 
 	protect:
-		double height;
-		double width;
+		double m_height;
+		double m_width;
 
 
 }
