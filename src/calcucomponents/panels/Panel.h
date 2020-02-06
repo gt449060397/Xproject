@@ -14,17 +14,16 @@ class Panel:public CalculateItem
 {
   
 	public:
-		virtual bool Calculate() override {};
+		virtual bool Calculate() override {return false;}
 
 		//item calculate book
-		virtual bool CalculateBook() override {};
+		virtual bool CalculateBook() override {return false;}
 
 	
 
-	protect:
+	protected:
 		double m_height;
 		double m_width;
 
-
-}
+};
 
