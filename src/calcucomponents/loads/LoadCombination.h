@@ -24,8 +24,8 @@ class LoadCombination
 
 		virtual ~LoadCombination()=default;
 
-		//kN/m2
-		double LoadEffectCombination(CombinationType comType)=0;
+		//kn/m2
+		virtual	double LoadEffectCombination(CombinationType comtype)=0;
 
 
 	protected:
@@ -34,8 +34,6 @@ class LoadCombination
 		double m_gamma_E;
 		double m_psi_w;
 		double m_psi_E;
-
-		CombinationType m_eComType;
 
 		//load
 		WindLoad m_wind;

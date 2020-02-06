@@ -14,7 +14,7 @@ struct CheckResults
 	{
 		PASS=0,
 		Fail=1,
-	}
+	};
 
 	Result m_eResult;//jie guo
 	double m_DesignValue;// she ji zhi

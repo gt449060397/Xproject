@@ -15,4 +15,6 @@ class GlassLoadCombination:public LoadCombination
 		GlassLoadCombination(WindLoad wind,SeismicEffect seismic,DeadLoad deadload):LoadCombination(wind,seismic,deadload){}
 		double LoadEffectCombination(CombinationType comType)override;
 
-}
+		WindLoad GetWindLoad()const{return m_wind;}
+
+};

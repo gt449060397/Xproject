@@ -3,7 +3,7 @@
 # include "GlassLoadCombination.h"
 
 
-double GlassLoadCombination:LoadEffectCombination(CombinationType type)
+double GlassLoadCombination::LoadEffectCombination(CombinationType type)
 {
 	switch(type)
 	{

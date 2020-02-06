@@ -119,11 +119,18 @@ double GlassPanel::Caltheta(double q_k,double shortSide,double thickness)
 	return theta;
 }
 
-double GlassPanel::CalGlassMaxStress(double thickness,double q,double q_k)
+double GlassPanel::CalShortAndLongSideRatio()
 {
 	double shortSide=(m_width<=m_height)?m_width:m_height;
 	double longSide=(m_width<=m_height)?m_height:m_width;
-	double bendingMomFactor=CalBendingMomnentFactor(shortSide/longSide);
+
+	return shortSide/longSide;
+}
+
+double GlassPanel::CalGlassMaxStress(double thickness,double q,double q_k)
+{
+	double bendingMomFactor=CalBendingMomnentFactor(CalShortAndLongSideRatio());
+	double shortSide=(m_width<=m_height)?m_width:m_height;
 	double theta=Caltheta(q_k,shortSide,thickness);
 	double reductionFactor=CalReductionFactor(theta);
 	//maxStress(MPa)
@@ -132,13 +139,82 @@ double GlassPanel::CalGlassMaxStress(double thickness,double q,double q_k)
 	return maxStress;
 }
 
-CheckResults GlassPanel:CheckStrength(double thickness,GlassLoadCombination &combination)
+CheckResults GlassPanel::CheckStrength(double thickness,GlassLoadCombination &combination)
 {
-
 	double qk=combination.LoadEffectCombination(LoadCombination::STANDARD);
 	double q=combination.LoadEffectCombination(LoadCombination::DESIGN);
 
-	double maxStress=CalGlassMaxStress(thickness,q,qk);
 	CheckResults results;
-	results.m
+	results.m_CalValue=CalGlassMaxStress(thickness,q,qk);
+	results.m_DesignValue=GlassStrengthDesignValue(m_eMat,thickness);
+	results.m_eResult=(results.m_CalValue<=results.m_DesignValue)?CheckResults::PASS:CheckResults::Fail;
+	results.m_Surplus=(results.m_DesignValue-results.m_CalValue)*100/results.m_DesignValue;
+
+	return results;
+}
+
+
+double GlassPanel::CalDeflectionFactor(double shortAndlongSideRatio)
+{
+	double deflectionFactor=0;
+	if (shortAndlongSideRatio <= 0)
+		deflectionFactor = 0.01302;
+	else if (shortAndlongSideRatio > 0 && shortAndlongSideRatio <= 0.2)
+		deflectionFactor = (0.01302 - 0.01297) * (0.2 - shortAndlongSideRatio) / (0.2 - 0) + 0.01297;
+	else if (shortAndlongSideRatio > 0.2 && shortAndlongSideRatio <= 0.25)
+		deflectionFactor = (0.01297 - 0.01282) * (0.25 - shortAndlongSideRatio) / (0.25 - 0.2) + 0.01282;
+	else if (shortAndlongSideRatio > 0.25 && shortAndlongSideRatio <= 0.33)
+		deflectionFactor = (0.01282 - 0.01223) * (0.33 - shortAndlongSideRatio) / (0.33 - 0.25) + 0.01223;
+	else if (shortAndlongSideRatio > 0.33 && shortAndlongSideRatio <= 0.50)
+		deflectionFactor = (0.01223 - 0.01013) * (0.5 - shortAndlongSideRatio) / (0.5 - 0.33) + 0.01013;
+	else if (shortAndlongSideRatio > 0.5 && shortAndlongSideRatio <= 0.55)
+		deflectionFactor = (0.01013 - 0.00940) * (0.55 - shortAndlongSideRatio) / (0.55 - 0.50) + 0.00940;
+	else if (shortAndlongSideRatio > 0.55 && shortAndlongSideRatio <= 0.60)
+		deflectionFactor = (0.00940 - 0.00867) * (0.60 - shortAndlongSideRatio) / (0.60 - 0.55) + 0.00867;
+	else if (shortAndlongSideRatio > 0.60 && shortAndlongSideRatio <= 0.65)
+		deflectionFactor = (0.00867 - 0.00796) * (0.65 - shortAndlongSideRatio) / (0.65 - 0.60) + 0.00796;
+	else if (shortAndlongSideRatio > 0.65 && shortAndlongSideRatio <= 0.70)
+		deflectionFactor = (0.00796 - 0.00727) * (0.70 - shortAndlongSideRatio) / (0.70 - 0.65) + 0.00727;
+	else if (shortAndlongSideRatio > 0.70 && shortAndlongSideRatio <= 0.75)
+		deflectionFactor = (0.00727 - 0.00663) * (0.75 - shortAndlongSideRatio) / (0.75 - 0.70) + 0.00663;
+	else if (shortAndlongSideRatio > 0.75 && shortAndlongSideRatio <= 0.80)
+		deflectionFactor = (0.00663 - 0.00603) * (0.80 - shortAndlongSideRatio) / (0.80 - 0.75) + 0.00603;
+	else if (shortAndlongSideRatio > 0.80 && shortAndlongSideRatio <= 0.85)
+		deflectionFactor = (0.00603 - 0.00547) * (0.85 - shortAndlongSideRatio) / (0.85 - 0.80) + 0.00547;
+	else if (shortAndlongSideRatio > 0.85 && shortAndlongSideRatio <= 0.90)
+		deflectionFactor = (0.00547 - 0.00496) * (0.90 - shortAndlongSideRatio) / (0.90 - 0.85) + 0.00496;
+	else if (shortAndlongSideRatio > 0.90 && shortAndlongSideRatio <= 0.95)
+		deflectionFactor = (0.00496 - 0.00449) * (0.95 - shortAndlongSideRatio) / (0.95 - 0.90) + 0.00449;
+	else if (shortAndlongSideRatio > 0.95 && shortAndlongSideRatio <= 1.0)
+		deflectionFactor = (0.00449 - 0.00406) * (1.0 - shortAndlongSideRatio) / (1.0 - 0.95) + 0.00406;
+
+	return deflectionFactor;
+}
+
+double GlassPanel::CalMaxDeflection(double thickness,double w_k)
+{
+
+	double deflectionFactor=CalDeflectionFactor(CalShortAndLongSideRatio());
+	double shortSide=(m_width<=m_height)?m_width:m_height;
+	double theta=Caltheta(w_k,shortSide,thickness);
+	double reductionFactor=CalReductionFactor(theta);
+	double glassStiffness=m_Eglass*pow(shortSide/1000,3)/(12*(1-0.04));
+	double maxDeflection=1000*deflectionFactor*w_k*pow(shortSide/1000,4)*reductionFactor/glassStiffness;
+
+	return maxDeflection;
+
+		
+}
+
+CheckResults GlassPanel::CheckDeflection(double thickness,GlassLoadCombination &combination)
+{
+	double w_k=combination.GetWindLoad().CalNominalValue();
+	CheckResults results;
+	results.m_CalValue=CalMaxDeflection(thickness,w_k);
+	double shortSide=(m_width<=m_height)?m_width:m_height;//(mm)
+	results.m_DesignValue=shortSide/60;
+	results.m_eResult=(results.m_CalValue<=results.m_DesignValue)?CheckResults::PASS:CheckResults::Fail;
+	results.m_Surplus=(results.m_DesignValue-results.m_CalValue)*100/results.m_DesignValue;
+
+	return results;
 }

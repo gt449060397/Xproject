@@ -52,12 +52,22 @@ class GlassPanel:public Panel
 		//qiang du she ji zhi
 		double GlassStrengthDesignValue(GlassMaterial mat,double thickness);
 
+		//chang bian yu duan bian bi zhi
+		double CalShortAndLongSideRatio();
 		//qiang du ji suan
 		double CalGlassMaxStress(double thickness,double q,double q_k);
 
 		//bo li qiang du yan suan
 		CheckResults CheckStrength(double thickness,GlassLoadCombination &combination);
+
+		//nao du xi shu
+		double CalDeflectionFactor(double shortAndlongSideRatio);
+
+		//zui da nao du ji suan
+		double CalMaxDeflection(double thickness,double w_k);
 	
+		//nao du xian suan
+		CheckResults CheckDeflection(double thickness,GlassLoadCombination &combination);
 	protected:
 		const double m_gravityDensity=25.6;//zhong li mi du (kN/m3)
 		const double m_Eglass=72000000;//bo li tang xing mo liang(kN/m2)
