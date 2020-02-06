@@ -17,16 +17,18 @@ class LoadCombination
 	public:
 		enum CombinationType
 		{
-			STRENGTH=0,
-			DEFLECTION=1,
+			STANDARD=0,
+			DESIGN=1,
 		};
-		LoadCombination(CombinationType comType,WindLoad wind,SeismicEffect seismic,DeadLoad deadload);
+		LoadCombination(WindLoad wind,SeismicEffect seismic,DeadLoad deadload);
+
+		virtual ~LoadCombination()=default;
 
 		//kN/m2
-		double LoadEffectCombination();
+		double LoadEffectCombination(CombinationType comType)=0;
 
 
-	private:
+	protected:
 		double m_gamma_g;
 		double m_gamma_w;
 		double m_gamma_E;
@@ -40,5 +42,5 @@ class LoadCombination
 		SeismicEffect m_seismic;
 		DeadLoad m_dead;
 
-		
 };
+

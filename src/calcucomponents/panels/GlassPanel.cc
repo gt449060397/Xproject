@@ -131,3 +131,14 @@ double GlassPanel::CalGlassMaxStress(double thickness,double q,double q_k)
 
 	return maxStress;
 }
+
+CheckResults GlassPanel:CheckStrength(double thickness,GlassLoadCombination &combination)
+{
+
+	double qk=combination.LoadEffectCombination(LoadCombination::STANDARD);
+	double q=combination.LoadEffectCombination(LoadCombination::DESIGN);
+
+	double maxStress=CalGlassMaxStress(thickness,q,qk);
+	CheckResults results;
+	results.m
+}

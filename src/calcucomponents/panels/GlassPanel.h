@@ -9,7 +9,7 @@
 
 #include "Panel.h"
 #include "../CheckResults.h"
-#include "../loads/LoadCombination.h"
+#include "../loads/GlassLoadCombination.h"
 
 class GlassPanel:public Panel
 {
@@ -29,6 +29,10 @@ class GlassPanel:public Panel
 			FLAT=0,//PING BIAN
 			TEMPERED=1,//GANG HUA
 		};
+
+		GlassPanel()=default;
+		GlassPanel(GlassMaterial mat):m_eMat(mat){}
+		virtual ~GlassPanel()=default;
 
 		virtual bool Calculate() override {return false;}
 
@@ -52,17 +56,13 @@ class GlassPanel:public Panel
 		double CalGlassMaxStress(double thickness,double q,double q_k);
 
 		//bo li qiang du yan suan
-		CheckResults CheckStrength(double thickness,LoadCombination &combination);
+		CheckResults CheckStrength(double thickness,GlassLoadCombination &combination);
 	
-		
-
-
-
 	protected:
 		const double m_gravityDensity=25.6;//zhong li mi du (kN/m3)
 		const double m_Eglass=72000000;//bo li tang xing mo liang(kN/m2)
 
-
+		GlassMaterial m_eMat;//cai zhi
 
 
 };
