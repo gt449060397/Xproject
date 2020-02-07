@@ -1,0 +1,66 @@
+syntax="proto3";
+
+package Xparameters;
+
+//Interface exported by the server
+
+message BasicParameters
+{
+	enum DesignYears
+	{
+		FIFTY=0;
+		HUNDRED=1;
+	}
+
+	//di main lei xing 
+	enum SiteType
+	{
+		A=0;
+		B=1;
+		C=2;
+		D=3;
+	}
+	//ti xing xi shu yong
+	enum CalculateArea
+	{
+		Corner=0;
+		Wall=1;
+		Other=2;
+
+	}
+
+	//kang zhen she fang
+	enum SeismicFortification
+	{
+		STANDARD=0;
+		EMPHASIS=1;
+		SPECIAL=2;
+		MODERATE=3; 
+	}
+
+	enum SeismicSiteType
+	{
+		I0=0;
+		I1=1;
+		II=2;
+		III=3;
+		IV=4;
+	}
+
+	enum WindLoadCalMethod
+	{
+		LOADCODE=0;
+		CUSTOMIZE=1;
+		ACTUALCAL=2;
+	}
+
+	double w0=1;// ji ben feng ya(KN/m2)
+	DesignYears m_eDesignYears=2;
+	SiteType m_eSiteType=3;
+	CalculateArea m_eCalArea=4;
+	WindLoadCalMethod m_eWindCalMethod=5;
+	SeismicFortification m_eSeismicFort=6;
+	SeismicSiteType m_eSeismicSiteType=7;
+
+
+}

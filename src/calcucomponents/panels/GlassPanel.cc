@@ -1,5 +1,4 @@
 
-
 #include "GlassPanel.h"
 #include <math.h>
 

@@ -1,0 +1,55 @@
+syntax="proto3";
+
+package Xglass;
+
+//Interface exported by the server
+import "basicParameters.proto";
+
+service Glass
+{
+     rpc Calculate(GlassRequest) returns (GlassCalReply){} 
+}
+
+
+message GlassRequest
+{
+	enum GlassType
+	{
+		ONE=0;
+		HOLLOW=1;//ZHONG KONG
+		LAMINATE=2;//JIA CENG
+		HOLLOW_AND_LAMINATE=3;// ZHONG KONG + JIA CENG
+		DOUBLEHOLLOW=4;// SHUANG ZHONG KONG
+		DOUBLELAMINATE_AND_HOLLOW=5;
+	}
+
+	enum GlassMaterial
+	{
+		FLAT=0;//PING BIAN
+		TEMPERED=1;//GANG HUA
+	}
+
+	 Xparameters.BasicParameters parameters=1;
+
+	 double width=2;
+	 double height=3;
+	 GlassMaterial mat=4;
+
+	 double thickness=5;
+
+
+}
+
+
+message GlassCalReply
+{
+    string result=1;
+
+}
+
+message GlassBookReply
+{
+
+string result=1;
+
+}

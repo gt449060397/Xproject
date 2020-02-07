@@ -5,7 +5,6 @@
  * 
  * */
 
-
 #pragma once
 
 class BasicParameters
@@ -96,5 +95,7 @@ class BasicParameters
 
 		double m_u_sl;//ju bu ti xing xi shu
 		double m_WindLoadNominalValue;//(KN/m2)
+
+		double m_alpha_max;//di zheng can shu
 
 };
