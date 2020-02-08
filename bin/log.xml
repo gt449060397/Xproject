@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<log4j:configuration   xmlns:log4j="http://jakarta.apache.org/log4j/">
+  <appender name="RootAppender" class="org.apache.log4j.RollingFileAppender">
+    <param name="file" value="log/log.log"/>
+    <param name="rollingStyle" value="size" />
+    <param name="maximumFileSize" value="100MB" />
+    <param name="MaxBackupIndex" value="5" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %t %C::%M(%L) - %m%n"/>
+    </layout>
+  </appender>
+  <appender name="TraceAppender" class="org.apache.log4j.RollingFileAppender">
+    <param name="file" value="log/trace.log"/>
+    <param name="rollingStyle" value="size" />
+    <param name="maximumFileSize" value="10MB" />
+    <param name="maxSizeRollBackups" value="10" />
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %t %C::%M(%L) - %m%n"/>
+    </layout>
+  </appender>
+  <appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="conversionPattern" value="%d{yyyy-MM-dd HH:mm:ss,SSS} %-5p %t %C::%M(%L) - %m%n"/>
+    </layout>
+  </appender>
+  <root>
+    <level value="trace"/>
+    <!--<appender-ref ref="ConsoleAppender"/>-->
+    <appender-ref ref="RootAppender"/>
+  </root>
+  <logger name="trace" additivity="false">
+    <level value="trace"/>
+    <appender-ref ref="TraceAppender"/>
+  </logger>
+</log4j:configuration>

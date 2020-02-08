@@ -11,13 +11,13 @@ BIT=$(shell getconf LONG_BIT)
 OUTPUTFILE=Xproject_Core_$(VERSION)_CENTOS$(OSV)_x86_$(BIT)bit_Bin.tar.gz
 
 #source code
-CC_SRC=$(wildcard grpcproto/*.cc calcucomponents/*.cc calcucomponents/columns/*.cc calcucomponents/connectors/*.cc calcucomponents/crossbeams/*.cc calcucomponents/embedded/*.cc calcucomponents/gums/*.cc calcucomponents/loads/*.cc calcucomponents/panels/*.cc)
+CC_SRC=$(wildcard grpcproto/startX/*.cc grpcproto/parameters/*.cc grpcproto/glass/*.cc calcucomponents/*.cc calcucomponents/columns/*.cc calcucomponents/connectors/*.cc calcucomponents/crossbeams/*.cc calcucomponents/embedded/*.cc calcucomponents/gums/*.cc calcucomponents/loads/*.cc calcucomponents/panels/*.cc)
 
 #object
 CC_OBJ=$(patsubst %.cc, ./build/%.o, $(CC_SRC))
 
 #include_dir
-INC_DIR= -I./ -I ../export/glog/ -I ../export/jsonCpp/ -I ../export/tinyxml/ -I ../export/xmlConfig/
+INC_DIR= -I./ -I ../export/glog/ -I ../export/jsonCpp/ -I ../export/tinyxml/ -I ../export/xmlConfig/ -I ./grpcproto/startX/ -I ./grpcproto/glass/ -I ./grpcproto/parameters/
 
 #lib_dir
 LIB_DIR=-L ../libs -L ../libs/glog/suse$(BIT) -L ../libs/tinyxml/ -L ../libs/xmlConfig/ -L ../libs/jsonCpp/suse$(BIT)
@@ -75,13 +75,13 @@ $(EXE): $(CC_OBJ) ./main.cc
 	sed 's,.*\.o[ :]*,$(patsubst %.d, %.o, $@) $@ : ,g' < $@.$$$$ > $@; \
 	rm -f $@.$$$$;
 
-.PRECIOUS: ../grpcproto/%.grpc.pb.cc
-../grpcproto/%.grpc.pb.cc: %.proto
-	$(PROTOC) -I $(PROTOS_PATH) --grpc_out=. --plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN_PATH) $<
-
-.PRECIOUS: %.pb.cc
-%.pb.cc: %.proto
-	$(PROTOC) -I $(PROTOS_PATH) --cpp_out=. $<
+#.PRECIOUS: ../grpcproto/%.grpc.pb.cc
+#../grpcproto/%.grpc.pb.cc: %.proto
+#	$(PROTOC) -I $(PROTOS_PATH) --grpc_out=. --plugin=protoc-gen-grpc=$(GRPC_CPP_PLUGIN_PATH) $<
+#
+#.PRECIOUS: %.pb.cc
+#%.pb.cc: %.proto
+#	$(PROTOC) -I $(PROTOS_PATH) --cpp_out=. $<
 
 clean:
 	rm -rf $(EXE) $(CC_OBJ) 

@@ -5,7 +5,7 @@ package Xglass;
 //Interface exported by the server
 import "basicParameters.proto";
 
-service Glass
+service GlassAPI
 {
      rpc Calculate(GlassRequest) returns (GlassCalReply){} 
 }
