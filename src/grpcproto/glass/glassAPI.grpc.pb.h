@@ -26,37 +26,37 @@
 #include <grpcpp/impl/codegen/stub_options.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
 
-namespace Xglass {
+namespace Xproject {
 
 class GlassAPI final {
  public:
   static constexpr char const* service_full_name() {
-    return "Xglass.GlassAPI";
+    return "Xproject.GlassAPI";
   }
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::Xglass::GlassCalReply* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Xglass::GlassCalReply>> AsyncCalculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Xglass::GlassCalReply>>(AsyncCalculateRaw(context, request, cq));
+    virtual ::grpc::Status Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::Xproject::GlassCalReply* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Xproject::GlassCalReply>> AsyncCalculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Xproject::GlassCalReply>>(AsyncCalculateRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Xglass::GlassCalReply>> PrepareAsyncCalculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Xglass::GlassCalReply>>(PrepareAsyncCalculateRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Xproject::GlassCalReply>> PrepareAsyncCalculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::Xproject::GlassCalReply>>(PrepareAsyncCalculateRaw(context, request, cq));
     }
     class experimental_async_interface {
      public:
       virtual ~experimental_async_interface() {}
-      virtual void Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response, std::function<void(::grpc::Status)>) = 0;
-      virtual void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xglass::GlassCalReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response, std::function<void(::grpc::Status)>) = 0;
+      virtual void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xproject::GlassCalReply* response, std::function<void(::grpc::Status)>) = 0;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      virtual void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xglass::GlassCalReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
+      virtual void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xproject::GlassCalReply* response, ::grpc::ClientUnaryReactor* reactor) = 0;
       #else
-      virtual void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xglass::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
+      virtual void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xproject::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) = 0;
       #endif
     };
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
@@ -67,33 +67,33 @@ class GlassAPI final {
     #endif
     virtual class experimental_async_interface* experimental_async() { return nullptr; }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Xglass::GlassCalReply>* AsyncCalculateRaw(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Xglass::GlassCalReply>* PrepareAsyncCalculateRaw(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Xproject::GlassCalReply>* AsyncCalculateRaw(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::Xproject::GlassCalReply>* PrepareAsyncCalculateRaw(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub final : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::Xglass::GlassCalReply* response) override;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Xglass::GlassCalReply>> AsyncCalculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Xglass::GlassCalReply>>(AsyncCalculateRaw(context, request, cq));
+    ::grpc::Status Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::Xproject::GlassCalReply* response) override;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Xproject::GlassCalReply>> AsyncCalculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Xproject::GlassCalReply>>(AsyncCalculateRaw(context, request, cq));
     }
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Xglass::GlassCalReply>> PrepareAsyncCalculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Xglass::GlassCalReply>>(PrepareAsyncCalculateRaw(context, request, cq));
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Xproject::GlassCalReply>> PrepareAsyncCalculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::Xproject::GlassCalReply>>(PrepareAsyncCalculateRaw(context, request, cq));
     }
     class experimental_async final :
       public StubInterface::experimental_async_interface {
      public:
-      void Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response, std::function<void(::grpc::Status)>) override;
-      void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xglass::GlassCalReply* response, std::function<void(::grpc::Status)>) override;
+      void Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response, std::function<void(::grpc::Status)>) override;
+      void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xproject::GlassCalReply* response, std::function<void(::grpc::Status)>) override;
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
       #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
-      void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xglass::GlassCalReply* response, ::grpc::ClientUnaryReactor* reactor) override;
+      void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xproject::GlassCalReply* response, ::grpc::ClientUnaryReactor* reactor) override;
       #else
-      void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xglass::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
+      void Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xproject::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) override;
       #endif
      private:
       friend class Stub;
@@ -106,8 +106,8 @@ class GlassAPI final {
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
     class experimental_async async_stub_{this};
-    ::grpc::ClientAsyncResponseReader< ::Xglass::GlassCalReply>* AsyncCalculateRaw(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) override;
-    ::grpc::ClientAsyncResponseReader< ::Xglass::GlassCalReply>* PrepareAsyncCalculateRaw(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::Xproject::GlassCalReply>* AsyncCalculateRaw(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) override;
+    ::grpc::ClientAsyncResponseReader< ::Xproject::GlassCalReply>* PrepareAsyncCalculateRaw(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) override;
     const ::grpc::internal::RpcMethod rpcmethod_Calculate_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
@@ -116,7 +116,7 @@ class GlassAPI final {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status Calculate(::grpc::ServerContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response);
+    virtual ::grpc::Status Calculate(::grpc::ServerContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response);
   };
   template <class BaseClass>
   class WithAsyncMethod_Calculate : public BaseClass {
@@ -130,11 +130,11 @@ class GlassAPI final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xglass::GlassRequest* /*request*/, ::Xglass::GlassCalReply* /*response*/) override {
+    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xproject::GlassRequest* /*request*/, ::Xproject::GlassCalReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestCalculate(::grpc::ServerContext* context, ::Xglass::GlassRequest* request, ::grpc::ServerAsyncResponseWriter< ::Xglass::GlassCalReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestCalculate(::grpc::ServerContext* context, ::Xproject::GlassRequest* request, ::grpc::ServerAsyncResponseWriter< ::Xproject::GlassCalReply>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
@@ -151,38 +151,38 @@ class GlassAPI final {
       ::grpc::Service::experimental().
     #endif
         MarkMethodCallback(0,
-          new ::grpc_impl::internal::CallbackUnaryHandler< ::Xglass::GlassRequest, ::Xglass::GlassCalReply>(
+          new ::grpc_impl::internal::CallbackUnaryHandler< ::Xproject::GlassRequest, ::Xproject::GlassCalReply>(
             [this](
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
                    ::grpc::CallbackServerContext*
     #else
                    ::grpc::experimental::CallbackServerContext*
     #endif
-                     context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response) { return this->Calculate(context, request, response); }));}
+                     context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response) { return this->Calculate(context, request, response); }));}
     void SetMessageAllocatorFor_Calculate(
-        ::grpc::experimental::MessageAllocator< ::Xglass::GlassRequest, ::Xglass::GlassCalReply>* allocator) {
+        ::grpc::experimental::MessageAllocator< ::Xproject::GlassRequest, ::Xproject::GlassCalReply>* allocator) {
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::GetHandler(0);
     #else
       ::grpc::internal::MethodHandler* const handler = ::grpc::Service::experimental().GetHandler(0);
     #endif
-      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::Xglass::GlassRequest, ::Xglass::GlassCalReply>*>(handler)
+      static_cast<::grpc_impl::internal::CallbackUnaryHandler< ::Xproject::GlassRequest, ::Xproject::GlassCalReply>*>(handler)
               ->SetMessageAllocator(allocator);
     }
     ~ExperimentalWithCallbackMethod_Calculate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xglass::GlassRequest* /*request*/, ::Xglass::GlassCalReply* /*response*/) override {
+    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xproject::GlassRequest* /*request*/, ::Xproject::GlassCalReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     #ifdef GRPC_CALLBACK_API_NONEXPERIMENTAL
     virtual ::grpc::ServerUnaryReactor* Calculate(
-      ::grpc::CallbackServerContext* /*context*/, const ::Xglass::GlassRequest* /*request*/, ::Xglass::GlassCalReply* /*response*/)
+      ::grpc::CallbackServerContext* /*context*/, const ::Xproject::GlassRequest* /*request*/, ::Xproject::GlassCalReply* /*response*/)
     #else
     virtual ::grpc::experimental::ServerUnaryReactor* Calculate(
-      ::grpc::experimental::CallbackServerContext* /*context*/, const ::Xglass::GlassRequest* /*request*/, ::Xglass::GlassCalReply* /*response*/)
+      ::grpc::experimental::CallbackServerContext* /*context*/, const ::Xproject::GlassRequest* /*request*/, ::Xproject::GlassCalReply* /*response*/)
     #endif
       { return nullptr; }
   };
@@ -203,7 +203,7 @@ class GlassAPI final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xglass::GlassRequest* /*request*/, ::Xglass::GlassCalReply* /*response*/) override {
+    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xproject::GlassRequest* /*request*/, ::Xproject::GlassCalReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -220,7 +220,7 @@ class GlassAPI final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xglass::GlassRequest* /*request*/, ::Xglass::GlassCalReply* /*response*/) override {
+    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xproject::GlassRequest* /*request*/, ::Xproject::GlassCalReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -253,7 +253,7 @@ class GlassAPI final {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xglass::GlassRequest* /*request*/, ::Xglass::GlassCalReply* /*response*/) override {
+    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xproject::GlassRequest* /*request*/, ::Xproject::GlassCalReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
@@ -273,25 +273,25 @@ class GlassAPI final {
    public:
     WithStreamedUnaryMethod_Calculate() {
       ::grpc::Service::MarkMethodStreamed(0,
-        new ::grpc::internal::StreamedUnaryHandler< ::Xglass::GlassRequest, ::Xglass::GlassCalReply>(std::bind(&WithStreamedUnaryMethod_Calculate<BaseClass>::StreamedCalculate, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::internal::StreamedUnaryHandler< ::Xproject::GlassRequest, ::Xproject::GlassCalReply>(std::bind(&WithStreamedUnaryMethod_Calculate<BaseClass>::StreamedCalculate, this, std::placeholders::_1, std::placeholders::_2)));
     }
     ~WithStreamedUnaryMethod_Calculate() override {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xglass::GlassRequest* /*request*/, ::Xglass::GlassCalReply* /*response*/) override {
+    ::grpc::Status Calculate(::grpc::ServerContext* /*context*/, const ::Xproject::GlassRequest* /*request*/, ::Xproject::GlassCalReply* /*response*/) override {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedCalculate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::Xglass::GlassRequest,::Xglass::GlassCalReply>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedCalculate(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::Xproject::GlassRequest,::Xproject::GlassCalReply>* server_unary_streamer) = 0;
   };
   typedef WithStreamedUnaryMethod_Calculate<Service > StreamedUnaryService;
   typedef Service SplitStreamedService;
   typedef WithStreamedUnaryMethod_Calculate<Service > StreamedService;
 };
 
-}  // namespace Xglass
+}  // namespace Xproject
 
 
 #endif  // GRPC_glassAPI_2eproto__INCLUDED

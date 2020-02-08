@@ -2,7 +2,7 @@
 #include "basicParameters.pb.h"
 #include "GLogHelper.h"
 
-using Xparameters::BasicParameters;
+using Xproject::BasicParameters;
 
 Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *request, GlassCalReply* response)
 {

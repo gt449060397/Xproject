@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package Xglass;
+package Xproject;
 
 //Interface exported by the server
 import "basicParameters.proto";
@@ -29,13 +29,13 @@ message GlassRequest
 		TEMPERED=1;//GANG HUA
 	}
 
-	 Xparameters.BasicParameters parameters=1;
+	Xproject.BasicParameters parameters=1;
 
-	 double width=2;
-	 double height=3;
-	 GlassMaterial mat=4;
-
-	 double thickness=5;
+	double width=2;
+	double height=3;
+	GlassMaterial mat=4;
+	double thickness=5;
+	GlassType type=6;
 
 
 }
@@ -43,13 +43,13 @@ message GlassRequest
 
 message GlassCalReply
 {
-    string result=1;
+	string result=1;
 
 }
 
 message GlassBookReply
 {
 
-string result=1;
+	string result=1;
 
 }

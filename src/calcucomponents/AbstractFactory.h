@@ -4,3 +4,10 @@
   BasicParameters.h (BasicParameters class)
  */
 	    
+
+#pragma once
+
+Class AbstractFactory
+{
+
+};

@@ -20,8 +20,6 @@ Class OneGlassPanel:public GlassPanel
 		bool CalculateBook()override;
 
 
-
-
 	private:
 		double m_thickness;
 

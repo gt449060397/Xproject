@@ -19,10 +19,10 @@
 #include <grpcpp/impl/codegen/server_context.h>
 #include <grpcpp/impl/codegen/service_type.h>
 #include <grpcpp/impl/codegen/sync_stream.h>
-namespace Xglass {
+namespace Xproject {
 
 static const char* GlassAPI_method_names[] = {
-  "/Xglass.GlassAPI/Calculate",
+  "/Xproject.GlassAPI/Calculate",
 };
 
 std::unique_ptr< GlassAPI::Stub> GlassAPI::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -35,46 +35,46 @@ GlassAPI::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
   : channel_(channel), rpcmethod_Calculate_(GlassAPI_method_names[0], ::grpc::internal::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status GlassAPI::Stub::Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::Xglass::GlassCalReply* response) {
+::grpc::Status GlassAPI::Stub::Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::Xproject::GlassCalReply* response) {
   return ::grpc::internal::BlockingUnaryCall(channel_.get(), rpcmethod_Calculate_, context, request, response);
 }
 
-void GlassAPI::Stub::experimental_async::Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response, std::function<void(::grpc::Status)> f) {
+void GlassAPI::Stub::experimental_async::Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response, std::function<void(::grpc::Status)> f) {
   ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Calculate_, context, request, response, std::move(f));
 }
 
-void GlassAPI::Stub::experimental_async::Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xglass::GlassCalReply* response, std::function<void(::grpc::Status)> f) {
+void GlassAPI::Stub::experimental_async::Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xproject::GlassCalReply* response, std::function<void(::grpc::Status)> f) {
   ::grpc_impl::internal::CallbackUnaryCall(stub_->channel_.get(), stub_->rpcmethod_Calculate_, context, request, response, std::move(f));
 }
 
-void GlassAPI::Stub::experimental_async::Calculate(::grpc::ClientContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void GlassAPI::Stub::experimental_async::Calculate(::grpc::ClientContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Calculate_, context, request, response, reactor);
 }
 
-void GlassAPI::Stub::experimental_async::Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xglass::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
+void GlassAPI::Stub::experimental_async::Calculate(::grpc::ClientContext* context, const ::grpc::ByteBuffer* request, ::Xproject::GlassCalReply* response, ::grpc::experimental::ClientUnaryReactor* reactor) {
   ::grpc_impl::internal::ClientCallbackUnaryFactory::Create(stub_->channel_.get(), stub_->rpcmethod_Calculate_, context, request, response, reactor);
 }
 
-::grpc::ClientAsyncResponseReader< ::Xglass::GlassCalReply>* GlassAPI::Stub::AsyncCalculateRaw(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::Xglass::GlassCalReply>::Create(channel_.get(), cq, rpcmethod_Calculate_, context, request, true);
+::grpc::ClientAsyncResponseReader< ::Xproject::GlassCalReply>* GlassAPI::Stub::AsyncCalculateRaw(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::Xproject::GlassCalReply>::Create(channel_.get(), cq, rpcmethod_Calculate_, context, request, true);
 }
 
-::grpc::ClientAsyncResponseReader< ::Xglass::GlassCalReply>* GlassAPI::Stub::PrepareAsyncCalculateRaw(::grpc::ClientContext* context, const ::Xglass::GlassRequest& request, ::grpc::CompletionQueue* cq) {
-  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::Xglass::GlassCalReply>::Create(channel_.get(), cq, rpcmethod_Calculate_, context, request, false);
+::grpc::ClientAsyncResponseReader< ::Xproject::GlassCalReply>* GlassAPI::Stub::PrepareAsyncCalculateRaw(::grpc::ClientContext* context, const ::Xproject::GlassRequest& request, ::grpc::CompletionQueue* cq) {
+  return ::grpc_impl::internal::ClientAsyncResponseReaderFactory< ::Xproject::GlassCalReply>::Create(channel_.get(), cq, rpcmethod_Calculate_, context, request, false);
 }
 
 GlassAPI::Service::Service() {
   AddMethod(new ::grpc::internal::RpcServiceMethod(
       GlassAPI_method_names[0],
       ::grpc::internal::RpcMethod::NORMAL_RPC,
-      new ::grpc::internal::RpcMethodHandler< GlassAPI::Service, ::Xglass::GlassRequest, ::Xglass::GlassCalReply>(
+      new ::grpc::internal::RpcMethodHandler< GlassAPI::Service, ::Xproject::GlassRequest, ::Xproject::GlassCalReply>(
           std::mem_fn(&GlassAPI::Service::Calculate), this)));
 }
 
 GlassAPI::Service::~Service() {
 }
 
-::grpc::Status GlassAPI::Service::Calculate(::grpc::ServerContext* context, const ::Xglass::GlassRequest* request, ::Xglass::GlassCalReply* response) {
+::grpc::Status GlassAPI::Service::Calculate(::grpc::ServerContext* context, const ::Xproject::GlassRequest* request, ::Xproject::GlassCalReply* response) {
   (void) context;
   (void) request;
   (void) response;
@@ -82,5 +82,5 @@ GlassAPI::Service::~Service() {
 }
 
 
-}  // namespace Xglass
+}  // namespace Xproject
 

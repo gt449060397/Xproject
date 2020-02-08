@@ -1,6 +1,6 @@
 syntax="proto3";
 
-package Xparameters;
+package Xproject;
 
 //Interface exported by the server
 
@@ -61,6 +61,9 @@ message BasicParameters
 	WindLoadCalMethod m_eWindCalMethod=5;
 	SeismicFortification m_eSeismicFort=6;
 	SeismicSiteType m_eSeismicSiteType=7;
+	double m_u_sl=8;//ju bu ti xing xi shu
+	double m_WindLoadNominalValue=9;//(KN/m2)
 
+	double m_alpha_max=10;//di zheng can shu
 
 }

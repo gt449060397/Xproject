@@ -5,9 +5,9 @@
 
 using grpc::Status;    
 using grpc::ServerContext;
-using Xglass::GlassAPI;                                      
-using Xglass::GlassRequest;	
-using Xglass::GlassCalReply;
+using Xproject::GlassAPI;                                      
+using Xproject::GlassRequest;	
+using Xproject::GlassCalReply;
 
 class GlassAPIImpl:public GlassAPI::Service
 {

@@ -56,7 +56,7 @@ struct TableStruct_glassAPI_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_glassAPI_2eproto;
-namespace Xglass {
+namespace Xproject {
 class GlassBookReply;
 class GlassBookReplyDefaultTypeInternal;
 extern GlassBookReplyDefaultTypeInternal _GlassBookReply_default_instance_;
@@ -66,13 +66,13 @@ extern GlassCalReplyDefaultTypeInternal _GlassCalReply_default_instance_;
 class GlassRequest;
 class GlassRequestDefaultTypeInternal;
 extern GlassRequestDefaultTypeInternal _GlassRequest_default_instance_;
-}  // namespace Xglass
+}  // namespace Xproject
 PROTOBUF_NAMESPACE_OPEN
-template<> ::Xglass::GlassBookReply* Arena::CreateMaybeMessage<::Xglass::GlassBookReply>(Arena*);
-template<> ::Xglass::GlassCalReply* Arena::CreateMaybeMessage<::Xglass::GlassCalReply>(Arena*);
-template<> ::Xglass::GlassRequest* Arena::CreateMaybeMessage<::Xglass::GlassRequest>(Arena*);
+template<> ::Xproject::GlassBookReply* Arena::CreateMaybeMessage<::Xproject::GlassBookReply>(Arena*);
+template<> ::Xproject::GlassCalReply* Arena::CreateMaybeMessage<::Xproject::GlassCalReply>(Arena*);
+template<> ::Xproject::GlassRequest* Arena::CreateMaybeMessage<::Xproject::GlassRequest>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace Xglass {
+namespace Xproject {
 
 enum GlassRequest_GlassType : int {
   GlassRequest_GlassType_ONE = 0,
@@ -131,7 +131,7 @@ inline bool GlassRequest_GlassMaterial_Parse(
 // ===================================================================
 
 class GlassRequest :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Xglass.GlassRequest) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Xproject.GlassRequest) */ {
  public:
   GlassRequest();
   virtual ~GlassRequest();
@@ -211,7 +211,7 @@ class GlassRequest :
   void InternalSwap(GlassRequest* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Xglass.GlassRequest";
+    return "Xproject.GlassRequest";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -309,20 +309,21 @@ class GlassRequest :
     kHeightFieldNumber = 3,
     kThicknessFieldNumber = 5,
     kMatFieldNumber = 4,
+    kTypeFieldNumber = 6,
   };
-  // .Xparameters.BasicParameters parameters = 1;
+  // .Xproject.BasicParameters parameters = 1;
   bool has_parameters() const;
   private:
   bool _internal_has_parameters() const;
   public:
   void clear_parameters();
-  const ::Xparameters::BasicParameters& parameters() const;
-  ::Xparameters::BasicParameters* release_parameters();
-  ::Xparameters::BasicParameters* mutable_parameters();
-  void set_allocated_parameters(::Xparameters::BasicParameters* parameters);
+  const ::Xproject::BasicParameters& parameters() const;
+  ::Xproject::BasicParameters* release_parameters();
+  ::Xproject::BasicParameters* mutable_parameters();
+  void set_allocated_parameters(::Xproject::BasicParameters* parameters);
   private:
-  const ::Xparameters::BasicParameters& _internal_parameters() const;
-  ::Xparameters::BasicParameters* _internal_mutable_parameters();
+  const ::Xproject::BasicParameters& _internal_parameters() const;
+  ::Xproject::BasicParameters* _internal_mutable_parameters();
   public:
 
   // double width = 2;
@@ -352,32 +353,42 @@ class GlassRequest :
   void _internal_set_thickness(double value);
   public:
 
-  // .Xglass.GlassRequest.GlassMaterial mat = 4;
+  // .Xproject.GlassRequest.GlassMaterial mat = 4;
   void clear_mat();
-  ::Xglass::GlassRequest_GlassMaterial mat() const;
-  void set_mat(::Xglass::GlassRequest_GlassMaterial value);
+  ::Xproject::GlassRequest_GlassMaterial mat() const;
+  void set_mat(::Xproject::GlassRequest_GlassMaterial value);
   private:
-  ::Xglass::GlassRequest_GlassMaterial _internal_mat() const;
-  void _internal_set_mat(::Xglass::GlassRequest_GlassMaterial value);
+  ::Xproject::GlassRequest_GlassMaterial _internal_mat() const;
+  void _internal_set_mat(::Xproject::GlassRequest_GlassMaterial value);
   public:
 
-  // @@protoc_insertion_point(class_scope:Xglass.GlassRequest)
+  // .Xproject.GlassRequest.GlassType type = 6;
+  void clear_type();
+  ::Xproject::GlassRequest_GlassType type() const;
+  void set_type(::Xproject::GlassRequest_GlassType value);
+  private:
+  ::Xproject::GlassRequest_GlassType _internal_type() const;
+  void _internal_set_type(::Xproject::GlassRequest_GlassType value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Xproject.GlassRequest)
  private:
   class _Internal;
 
   ::PROTOBUF_NAMESPACE_ID::internal::InternalMetadataWithArena _internal_metadata_;
-  ::Xparameters::BasicParameters* parameters_;
+  ::Xproject::BasicParameters* parameters_;
   double width_;
   double height_;
   double thickness_;
   int mat_;
+  int type_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_glassAPI_2eproto;
 };
 // -------------------------------------------------------------------
 
 class GlassCalReply :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Xglass.GlassCalReply) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Xproject.GlassCalReply) */ {
  public:
   GlassCalReply();
   virtual ~GlassCalReply();
@@ -457,7 +468,7 @@ class GlassCalReply :
   void InternalSwap(GlassCalReply* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Xglass.GlassCalReply";
+    return "Xproject.GlassCalReply";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -500,7 +511,7 @@ class GlassCalReply :
   std::string* _internal_mutable_result();
   public:
 
-  // @@protoc_insertion_point(class_scope:Xglass.GlassCalReply)
+  // @@protoc_insertion_point(class_scope:Xproject.GlassCalReply)
  private:
   class _Internal;
 
@@ -512,7 +523,7 @@ class GlassCalReply :
 // -------------------------------------------------------------------
 
 class GlassBookReply :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Xglass.GlassBookReply) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Xproject.GlassBookReply) */ {
  public:
   GlassBookReply();
   virtual ~GlassBookReply();
@@ -592,7 +603,7 @@ class GlassBookReply :
   void InternalSwap(GlassBookReply* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Xglass.GlassBookReply";
+    return "Xproject.GlassBookReply";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -635,7 +646,7 @@ class GlassBookReply :
   std::string* _internal_mutable_result();
   public:
 
-  // @@protoc_insertion_point(class_scope:Xglass.GlassBookReply)
+  // @@protoc_insertion_point(class_scope:Xproject.GlassBookReply)
  private:
   class _Internal;
 
@@ -655,42 +666,42 @@ class GlassBookReply :
 #endif  // __GNUC__
 // GlassRequest
 
-// .Xparameters.BasicParameters parameters = 1;
+// .Xproject.BasicParameters parameters = 1;
 inline bool GlassRequest::_internal_has_parameters() const {
   return this != internal_default_instance() && parameters_ != nullptr;
 }
 inline bool GlassRequest::has_parameters() const {
   return _internal_has_parameters();
 }
-inline const ::Xparameters::BasicParameters& GlassRequest::_internal_parameters() const {
-  const ::Xparameters::BasicParameters* p = parameters_;
-  return p != nullptr ? *p : *reinterpret_cast<const ::Xparameters::BasicParameters*>(
-      &::Xparameters::_BasicParameters_default_instance_);
+inline const ::Xproject::BasicParameters& GlassRequest::_internal_parameters() const {
+  const ::Xproject::BasicParameters* p = parameters_;
+  return p != nullptr ? *p : *reinterpret_cast<const ::Xproject::BasicParameters*>(
+      &::Xproject::_BasicParameters_default_instance_);
 }
-inline const ::Xparameters::BasicParameters& GlassRequest::parameters() const {
-  // @@protoc_insertion_point(field_get:Xglass.GlassRequest.parameters)
+inline const ::Xproject::BasicParameters& GlassRequest::parameters() const {
+  // @@protoc_insertion_point(field_get:Xproject.GlassRequest.parameters)
   return _internal_parameters();
 }
-inline ::Xparameters::BasicParameters* GlassRequest::release_parameters() {
-  // @@protoc_insertion_point(field_release:Xglass.GlassRequest.parameters)
+inline ::Xproject::BasicParameters* GlassRequest::release_parameters() {
+  // @@protoc_insertion_point(field_release:Xproject.GlassRequest.parameters)
   
-  ::Xparameters::BasicParameters* temp = parameters_;
+  ::Xproject::BasicParameters* temp = parameters_;
   parameters_ = nullptr;
   return temp;
 }
-inline ::Xparameters::BasicParameters* GlassRequest::_internal_mutable_parameters() {
+inline ::Xproject::BasicParameters* GlassRequest::_internal_mutable_parameters() {
   
   if (parameters_ == nullptr) {
-    auto* p = CreateMaybeMessage<::Xparameters::BasicParameters>(GetArenaNoVirtual());
+    auto* p = CreateMaybeMessage<::Xproject::BasicParameters>(GetArenaNoVirtual());
     parameters_ = p;
   }
   return parameters_;
 }
-inline ::Xparameters::BasicParameters* GlassRequest::mutable_parameters() {
-  // @@protoc_insertion_point(field_mutable:Xglass.GlassRequest.parameters)
+inline ::Xproject::BasicParameters* GlassRequest::mutable_parameters() {
+  // @@protoc_insertion_point(field_mutable:Xproject.GlassRequest.parameters)
   return _internal_mutable_parameters();
 }
-inline void GlassRequest::set_allocated_parameters(::Xparameters::BasicParameters* parameters) {
+inline void GlassRequest::set_allocated_parameters(::Xproject::BasicParameters* parameters) {
   ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaNoVirtual();
   if (message_arena == nullptr) {
     delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(parameters_);
@@ -706,7 +717,7 @@ inline void GlassRequest::set_allocated_parameters(::Xparameters::BasicParameter
     
   }
   parameters_ = parameters;
-  // @@protoc_insertion_point(field_set_allocated:Xglass.GlassRequest.parameters)
+  // @@protoc_insertion_point(field_set_allocated:Xproject.GlassRequest.parameters)
 }
 
 // double width = 2;
@@ -717,7 +728,7 @@ inline double GlassRequest::_internal_width() const {
   return width_;
 }
 inline double GlassRequest::width() const {
-  // @@protoc_insertion_point(field_get:Xglass.GlassRequest.width)
+  // @@protoc_insertion_point(field_get:Xproject.GlassRequest.width)
   return _internal_width();
 }
 inline void GlassRequest::_internal_set_width(double value) {
@@ -726,7 +737,7 @@ inline void GlassRequest::_internal_set_width(double value) {
 }
 inline void GlassRequest::set_width(double value) {
   _internal_set_width(value);
-  // @@protoc_insertion_point(field_set:Xglass.GlassRequest.width)
+  // @@protoc_insertion_point(field_set:Xproject.GlassRequest.width)
 }
 
 // double height = 3;
@@ -737,7 +748,7 @@ inline double GlassRequest::_internal_height() const {
   return height_;
 }
 inline double GlassRequest::height() const {
-  // @@protoc_insertion_point(field_get:Xglass.GlassRequest.height)
+  // @@protoc_insertion_point(field_get:Xproject.GlassRequest.height)
   return _internal_height();
 }
 inline void GlassRequest::_internal_set_height(double value) {
@@ -746,27 +757,27 @@ inline void GlassRequest::_internal_set_height(double value) {
 }
 inline void GlassRequest::set_height(double value) {
   _internal_set_height(value);
-  // @@protoc_insertion_point(field_set:Xglass.GlassRequest.height)
+  // @@protoc_insertion_point(field_set:Xproject.GlassRequest.height)
 }
 
-// .Xglass.GlassRequest.GlassMaterial mat = 4;
+// .Xproject.GlassRequest.GlassMaterial mat = 4;
 inline void GlassRequest::clear_mat() {
   mat_ = 0;
 }
-inline ::Xglass::GlassRequest_GlassMaterial GlassRequest::_internal_mat() const {
-  return static_cast< ::Xglass::GlassRequest_GlassMaterial >(mat_);
+inline ::Xproject::GlassRequest_GlassMaterial GlassRequest::_internal_mat() const {
+  return static_cast< ::Xproject::GlassRequest_GlassMaterial >(mat_);
 }
-inline ::Xglass::GlassRequest_GlassMaterial GlassRequest::mat() const {
-  // @@protoc_insertion_point(field_get:Xglass.GlassRequest.mat)
+inline ::Xproject::GlassRequest_GlassMaterial GlassRequest::mat() const {
+  // @@protoc_insertion_point(field_get:Xproject.GlassRequest.mat)
   return _internal_mat();
 }
-inline void GlassRequest::_internal_set_mat(::Xglass::GlassRequest_GlassMaterial value) {
+inline void GlassRequest::_internal_set_mat(::Xproject::GlassRequest_GlassMaterial value) {
   
   mat_ = value;
 }
-inline void GlassRequest::set_mat(::Xglass::GlassRequest_GlassMaterial value) {
+inline void GlassRequest::set_mat(::Xproject::GlassRequest_GlassMaterial value) {
   _internal_set_mat(value);
-  // @@protoc_insertion_point(field_set:Xglass.GlassRequest.mat)
+  // @@protoc_insertion_point(field_set:Xproject.GlassRequest.mat)
 }
 
 // double thickness = 5;
@@ -777,7 +788,7 @@ inline double GlassRequest::_internal_thickness() const {
   return thickness_;
 }
 inline double GlassRequest::thickness() const {
-  // @@protoc_insertion_point(field_get:Xglass.GlassRequest.thickness)
+  // @@protoc_insertion_point(field_get:Xproject.GlassRequest.thickness)
   return _internal_thickness();
 }
 inline void GlassRequest::_internal_set_thickness(double value) {
@@ -786,7 +797,27 @@ inline void GlassRequest::_internal_set_thickness(double value) {
 }
 inline void GlassRequest::set_thickness(double value) {
   _internal_set_thickness(value);
-  // @@protoc_insertion_point(field_set:Xglass.GlassRequest.thickness)
+  // @@protoc_insertion_point(field_set:Xproject.GlassRequest.thickness)
+}
+
+// .Xproject.GlassRequest.GlassType type = 6;
+inline void GlassRequest::clear_type() {
+  type_ = 0;
+}
+inline ::Xproject::GlassRequest_GlassType GlassRequest::_internal_type() const {
+  return static_cast< ::Xproject::GlassRequest_GlassType >(type_);
+}
+inline ::Xproject::GlassRequest_GlassType GlassRequest::type() const {
+  // @@protoc_insertion_point(field_get:Xproject.GlassRequest.type)
+  return _internal_type();
+}
+inline void GlassRequest::_internal_set_type(::Xproject::GlassRequest_GlassType value) {
+  
+  type_ = value;
+}
+inline void GlassRequest::set_type(::Xproject::GlassRequest_GlassType value) {
+  _internal_set_type(value);
+  // @@protoc_insertion_point(field_set:Xproject.GlassRequest.type)
 }
 
 // -------------------------------------------------------------------
@@ -798,15 +829,15 @@ inline void GlassCalReply::clear_result() {
   result_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& GlassCalReply::result() const {
-  // @@protoc_insertion_point(field_get:Xglass.GlassCalReply.result)
+  // @@protoc_insertion_point(field_get:Xproject.GlassCalReply.result)
   return _internal_result();
 }
 inline void GlassCalReply::set_result(const std::string& value) {
   _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:Xglass.GlassCalReply.result)
+  // @@protoc_insertion_point(field_set:Xproject.GlassCalReply.result)
 }
 inline std::string* GlassCalReply::mutable_result() {
-  // @@protoc_insertion_point(field_mutable:Xglass.GlassCalReply.result)
+  // @@protoc_insertion_point(field_mutable:Xproject.GlassCalReply.result)
   return _internal_mutable_result();
 }
 inline const std::string& GlassCalReply::_internal_result() const {
@@ -820,26 +851,26 @@ inline void GlassCalReply::set_result(std::string&& value) {
   
   result_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:Xglass.GlassCalReply.result)
+  // @@protoc_insertion_point(field_set_rvalue:Xproject.GlassCalReply.result)
 }
 inline void GlassCalReply::set_result(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   result_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Xglass.GlassCalReply.result)
+  // @@protoc_insertion_point(field_set_char:Xproject.GlassCalReply.result)
 }
 inline void GlassCalReply::set_result(const char* value, size_t size) {
   
   result_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Xglass.GlassCalReply.result)
+  // @@protoc_insertion_point(field_set_pointer:Xproject.GlassCalReply.result)
 }
 inline std::string* GlassCalReply::_internal_mutable_result() {
   
   return result_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* GlassCalReply::release_result() {
-  // @@protoc_insertion_point(field_release:Xglass.GlassCalReply.result)
+  // @@protoc_insertion_point(field_release:Xproject.GlassCalReply.result)
   
   return result_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -850,7 +881,7 @@ inline void GlassCalReply::set_allocated_result(std::string* result) {
     
   }
   result_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), result);
-  // @@protoc_insertion_point(field_set_allocated:Xglass.GlassCalReply.result)
+  // @@protoc_insertion_point(field_set_allocated:Xproject.GlassCalReply.result)
 }
 
 // -------------------------------------------------------------------
@@ -862,15 +893,15 @@ inline void GlassBookReply::clear_result() {
   result_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline const std::string& GlassBookReply::result() const {
-  // @@protoc_insertion_point(field_get:Xglass.GlassBookReply.result)
+  // @@protoc_insertion_point(field_get:Xproject.GlassBookReply.result)
   return _internal_result();
 }
 inline void GlassBookReply::set_result(const std::string& value) {
   _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:Xglass.GlassBookReply.result)
+  // @@protoc_insertion_point(field_set:Xproject.GlassBookReply.result)
 }
 inline std::string* GlassBookReply::mutable_result() {
-  // @@protoc_insertion_point(field_mutable:Xglass.GlassBookReply.result)
+  // @@protoc_insertion_point(field_mutable:Xproject.GlassBookReply.result)
   return _internal_mutable_result();
 }
 inline const std::string& GlassBookReply::_internal_result() const {
@@ -884,26 +915,26 @@ inline void GlassBookReply::set_result(std::string&& value) {
   
   result_.SetNoArena(
     &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::move(value));
-  // @@protoc_insertion_point(field_set_rvalue:Xglass.GlassBookReply.result)
+  // @@protoc_insertion_point(field_set_rvalue:Xproject.GlassBookReply.result)
 }
 inline void GlassBookReply::set_result(const char* value) {
   GOOGLE_DCHECK(value != nullptr);
   
   result_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:Xglass.GlassBookReply.result)
+  // @@protoc_insertion_point(field_set_char:Xproject.GlassBookReply.result)
 }
 inline void GlassBookReply::set_result(const char* value, size_t size) {
   
   result_.SetNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:Xglass.GlassBookReply.result)
+  // @@protoc_insertion_point(field_set_pointer:Xproject.GlassBookReply.result)
 }
 inline std::string* GlassBookReply::_internal_mutable_result() {
   
   return result_.MutableNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 inline std::string* GlassBookReply::release_result() {
-  // @@protoc_insertion_point(field_release:Xglass.GlassBookReply.result)
+  // @@protoc_insertion_point(field_release:Xproject.GlassBookReply.result)
   
   return result_.ReleaseNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
@@ -914,7 +945,7 @@ inline void GlassBookReply::set_allocated_result(std::string* result) {
     
   }
   result_.SetAllocatedNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), result);
-  // @@protoc_insertion_point(field_set_allocated:Xglass.GlassBookReply.result)
+  // @@protoc_insertion_point(field_set_allocated:Xproject.GlassBookReply.result)
 }
 
 #ifdef __GNUC__
@@ -927,19 +958,19 @@ inline void GlassBookReply::set_allocated_result(std::string* result) {
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Xglass
+}  // namespace Xproject
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::Xglass::GlassRequest_GlassType> : ::std::true_type {};
+template <> struct is_proto_enum< ::Xproject::GlassRequest_GlassType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Xglass::GlassRequest_GlassType>() {
-  return ::Xglass::GlassRequest_GlassType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Xproject::GlassRequest_GlassType>() {
+  return ::Xproject::GlassRequest_GlassType_descriptor();
 }
-template <> struct is_proto_enum< ::Xglass::GlassRequest_GlassMaterial> : ::std::true_type {};
+template <> struct is_proto_enum< ::Xproject::GlassRequest_GlassMaterial> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Xglass::GlassRequest_GlassMaterial>() {
-  return ::Xglass::GlassRequest_GlassMaterial_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Xproject::GlassRequest_GlassMaterial>() {
+  return ::Xproject::GlassRequest_GlassMaterial_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE

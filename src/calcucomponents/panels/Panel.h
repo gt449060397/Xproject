@@ -8,6 +8,7 @@
 #pragma once
 
 #include "../CalculateItem.h"
+#include "../BasicParameters.h"
 
 
 class Panel:public CalculateItem

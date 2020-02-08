@@ -55,15 +55,15 @@ struct TableStruct_basicParameters_2eproto {
   static const ::PROTOBUF_NAMESPACE_ID::uint32 offsets[];
 };
 extern const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_basicParameters_2eproto;
-namespace Xparameters {
+namespace Xproject {
 class BasicParameters;
 class BasicParametersDefaultTypeInternal;
 extern BasicParametersDefaultTypeInternal _BasicParameters_default_instance_;
-}  // namespace Xparameters
+}  // namespace Xproject
 PROTOBUF_NAMESPACE_OPEN
-template<> ::Xparameters::BasicParameters* Arena::CreateMaybeMessage<::Xparameters::BasicParameters>(Arena*);
+template<> ::Xproject::BasicParameters* Arena::CreateMaybeMessage<::Xproject::BasicParameters>(Arena*);
 PROTOBUF_NAMESPACE_CLOSE
-namespace Xparameters {
+namespace Xproject {
 
 enum BasicParameters_DesignYears : int {
   BasicParameters_DesignYears_FIFTY = 0,
@@ -227,7 +227,7 @@ inline bool BasicParameters_WindLoadCalMethod_Parse(
 // ===================================================================
 
 class BasicParameters :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Xparameters.BasicParameters) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:Xproject.BasicParameters) */ {
  public:
   BasicParameters();
   virtual ~BasicParameters();
@@ -307,7 +307,7 @@ class BasicParameters :
   void InternalSwap(BasicParameters* other);
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "Xparameters.BasicParameters";
+    return "Xproject.BasicParameters";
   }
   private:
   inline ::PROTOBUF_NAMESPACE_ID::Arena* GetArenaNoVirtual() const {
@@ -537,6 +537,9 @@ class BasicParameters :
     kMEWindCalMethodFieldNumber = 5,
     kMESeismicFortFieldNumber = 6,
     kMESeismicSiteTypeFieldNumber = 7,
+    kMUSlFieldNumber = 8,
+    kMWindLoadNominalValueFieldNumber = 9,
+    kMAlphaMaxFieldNumber = 10,
   };
   // double w0 = 1;
   void clear_w0();
@@ -547,61 +550,88 @@ class BasicParameters :
   void _internal_set_w0(double value);
   public:
 
-  // .Xparameters.BasicParameters.DesignYears m_eDesignYears = 2;
+  // .Xproject.BasicParameters.DesignYears m_eDesignYears = 2;
   void clear_m_edesignyears();
-  ::Xparameters::BasicParameters_DesignYears m_edesignyears() const;
-  void set_m_edesignyears(::Xparameters::BasicParameters_DesignYears value);
+  ::Xproject::BasicParameters_DesignYears m_edesignyears() const;
+  void set_m_edesignyears(::Xproject::BasicParameters_DesignYears value);
   private:
-  ::Xparameters::BasicParameters_DesignYears _internal_m_edesignyears() const;
-  void _internal_set_m_edesignyears(::Xparameters::BasicParameters_DesignYears value);
+  ::Xproject::BasicParameters_DesignYears _internal_m_edesignyears() const;
+  void _internal_set_m_edesignyears(::Xproject::BasicParameters_DesignYears value);
   public:
 
-  // .Xparameters.BasicParameters.SiteType m_eSiteType = 3;
+  // .Xproject.BasicParameters.SiteType m_eSiteType = 3;
   void clear_m_esitetype();
-  ::Xparameters::BasicParameters_SiteType m_esitetype() const;
-  void set_m_esitetype(::Xparameters::BasicParameters_SiteType value);
+  ::Xproject::BasicParameters_SiteType m_esitetype() const;
+  void set_m_esitetype(::Xproject::BasicParameters_SiteType value);
   private:
-  ::Xparameters::BasicParameters_SiteType _internal_m_esitetype() const;
-  void _internal_set_m_esitetype(::Xparameters::BasicParameters_SiteType value);
+  ::Xproject::BasicParameters_SiteType _internal_m_esitetype() const;
+  void _internal_set_m_esitetype(::Xproject::BasicParameters_SiteType value);
   public:
 
-  // .Xparameters.BasicParameters.CalculateArea m_eCalArea = 4;
+  // .Xproject.BasicParameters.CalculateArea m_eCalArea = 4;
   void clear_m_ecalarea();
-  ::Xparameters::BasicParameters_CalculateArea m_ecalarea() const;
-  void set_m_ecalarea(::Xparameters::BasicParameters_CalculateArea value);
+  ::Xproject::BasicParameters_CalculateArea m_ecalarea() const;
+  void set_m_ecalarea(::Xproject::BasicParameters_CalculateArea value);
   private:
-  ::Xparameters::BasicParameters_CalculateArea _internal_m_ecalarea() const;
-  void _internal_set_m_ecalarea(::Xparameters::BasicParameters_CalculateArea value);
+  ::Xproject::BasicParameters_CalculateArea _internal_m_ecalarea() const;
+  void _internal_set_m_ecalarea(::Xproject::BasicParameters_CalculateArea value);
   public:
 
-  // .Xparameters.BasicParameters.WindLoadCalMethod m_eWindCalMethod = 5;
+  // .Xproject.BasicParameters.WindLoadCalMethod m_eWindCalMethod = 5;
   void clear_m_ewindcalmethod();
-  ::Xparameters::BasicParameters_WindLoadCalMethod m_ewindcalmethod() const;
-  void set_m_ewindcalmethod(::Xparameters::BasicParameters_WindLoadCalMethod value);
+  ::Xproject::BasicParameters_WindLoadCalMethod m_ewindcalmethod() const;
+  void set_m_ewindcalmethod(::Xproject::BasicParameters_WindLoadCalMethod value);
   private:
-  ::Xparameters::BasicParameters_WindLoadCalMethod _internal_m_ewindcalmethod() const;
-  void _internal_set_m_ewindcalmethod(::Xparameters::BasicParameters_WindLoadCalMethod value);
+  ::Xproject::BasicParameters_WindLoadCalMethod _internal_m_ewindcalmethod() const;
+  void _internal_set_m_ewindcalmethod(::Xproject::BasicParameters_WindLoadCalMethod value);
   public:
 
-  // .Xparameters.BasicParameters.SeismicFortification m_eSeismicFort = 6;
+  // .Xproject.BasicParameters.SeismicFortification m_eSeismicFort = 6;
   void clear_m_eseismicfort();
-  ::Xparameters::BasicParameters_SeismicFortification m_eseismicfort() const;
-  void set_m_eseismicfort(::Xparameters::BasicParameters_SeismicFortification value);
+  ::Xproject::BasicParameters_SeismicFortification m_eseismicfort() const;
+  void set_m_eseismicfort(::Xproject::BasicParameters_SeismicFortification value);
   private:
-  ::Xparameters::BasicParameters_SeismicFortification _internal_m_eseismicfort() const;
-  void _internal_set_m_eseismicfort(::Xparameters::BasicParameters_SeismicFortification value);
+  ::Xproject::BasicParameters_SeismicFortification _internal_m_eseismicfort() const;
+  void _internal_set_m_eseismicfort(::Xproject::BasicParameters_SeismicFortification value);
   public:
 
-  // .Xparameters.BasicParameters.SeismicSiteType m_eSeismicSiteType = 7;
+  // .Xproject.BasicParameters.SeismicSiteType m_eSeismicSiteType = 7;
   void clear_m_eseismicsitetype();
-  ::Xparameters::BasicParameters_SeismicSiteType m_eseismicsitetype() const;
-  void set_m_eseismicsitetype(::Xparameters::BasicParameters_SeismicSiteType value);
+  ::Xproject::BasicParameters_SeismicSiteType m_eseismicsitetype() const;
+  void set_m_eseismicsitetype(::Xproject::BasicParameters_SeismicSiteType value);
   private:
-  ::Xparameters::BasicParameters_SeismicSiteType _internal_m_eseismicsitetype() const;
-  void _internal_set_m_eseismicsitetype(::Xparameters::BasicParameters_SeismicSiteType value);
+  ::Xproject::BasicParameters_SeismicSiteType _internal_m_eseismicsitetype() const;
+  void _internal_set_m_eseismicsitetype(::Xproject::BasicParameters_SeismicSiteType value);
   public:
 
-  // @@protoc_insertion_point(class_scope:Xparameters.BasicParameters)
+  // double m_u_sl = 8;
+  void clear_m_u_sl();
+  double m_u_sl() const;
+  void set_m_u_sl(double value);
+  private:
+  double _internal_m_u_sl() const;
+  void _internal_set_m_u_sl(double value);
+  public:
+
+  // double m_WindLoadNominalValue = 9;
+  void clear_m_windloadnominalvalue();
+  double m_windloadnominalvalue() const;
+  void set_m_windloadnominalvalue(double value);
+  private:
+  double _internal_m_windloadnominalvalue() const;
+  void _internal_set_m_windloadnominalvalue(double value);
+  public:
+
+  // double m_alpha_max = 10;
+  void clear_m_alpha_max();
+  double m_alpha_max() const;
+  void set_m_alpha_max(double value);
+  private:
+  double _internal_m_alpha_max() const;
+  void _internal_set_m_alpha_max(double value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:Xproject.BasicParameters)
  private:
   class _Internal;
 
@@ -613,6 +643,9 @@ class BasicParameters :
   int m_ewindcalmethod_;
   int m_eseismicfort_;
   int m_eseismicsitetype_;
+  double m_u_sl_;
+  double m_windloadnominalvalue_;
+  double m_alpha_max_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_basicParameters_2eproto;
 };
@@ -635,7 +668,7 @@ inline double BasicParameters::_internal_w0() const {
   return w0_;
 }
 inline double BasicParameters::w0() const {
-  // @@protoc_insertion_point(field_get:Xparameters.BasicParameters.w0)
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.w0)
   return _internal_w0();
 }
 inline void BasicParameters::_internal_set_w0(double value) {
@@ -644,127 +677,187 @@ inline void BasicParameters::_internal_set_w0(double value) {
 }
 inline void BasicParameters::set_w0(double value) {
   _internal_set_w0(value);
-  // @@protoc_insertion_point(field_set:Xparameters.BasicParameters.w0)
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.w0)
 }
 
-// .Xparameters.BasicParameters.DesignYears m_eDesignYears = 2;
+// .Xproject.BasicParameters.DesignYears m_eDesignYears = 2;
 inline void BasicParameters::clear_m_edesignyears() {
   m_edesignyears_ = 0;
 }
-inline ::Xparameters::BasicParameters_DesignYears BasicParameters::_internal_m_edesignyears() const {
-  return static_cast< ::Xparameters::BasicParameters_DesignYears >(m_edesignyears_);
+inline ::Xproject::BasicParameters_DesignYears BasicParameters::_internal_m_edesignyears() const {
+  return static_cast< ::Xproject::BasicParameters_DesignYears >(m_edesignyears_);
 }
-inline ::Xparameters::BasicParameters_DesignYears BasicParameters::m_edesignyears() const {
-  // @@protoc_insertion_point(field_get:Xparameters.BasicParameters.m_eDesignYears)
+inline ::Xproject::BasicParameters_DesignYears BasicParameters::m_edesignyears() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_eDesignYears)
   return _internal_m_edesignyears();
 }
-inline void BasicParameters::_internal_set_m_edesignyears(::Xparameters::BasicParameters_DesignYears value) {
+inline void BasicParameters::_internal_set_m_edesignyears(::Xproject::BasicParameters_DesignYears value) {
   
   m_edesignyears_ = value;
 }
-inline void BasicParameters::set_m_edesignyears(::Xparameters::BasicParameters_DesignYears value) {
+inline void BasicParameters::set_m_edesignyears(::Xproject::BasicParameters_DesignYears value) {
   _internal_set_m_edesignyears(value);
-  // @@protoc_insertion_point(field_set:Xparameters.BasicParameters.m_eDesignYears)
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_eDesignYears)
 }
 
-// .Xparameters.BasicParameters.SiteType m_eSiteType = 3;
+// .Xproject.BasicParameters.SiteType m_eSiteType = 3;
 inline void BasicParameters::clear_m_esitetype() {
   m_esitetype_ = 0;
 }
-inline ::Xparameters::BasicParameters_SiteType BasicParameters::_internal_m_esitetype() const {
-  return static_cast< ::Xparameters::BasicParameters_SiteType >(m_esitetype_);
+inline ::Xproject::BasicParameters_SiteType BasicParameters::_internal_m_esitetype() const {
+  return static_cast< ::Xproject::BasicParameters_SiteType >(m_esitetype_);
 }
-inline ::Xparameters::BasicParameters_SiteType BasicParameters::m_esitetype() const {
-  // @@protoc_insertion_point(field_get:Xparameters.BasicParameters.m_eSiteType)
+inline ::Xproject::BasicParameters_SiteType BasicParameters::m_esitetype() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_eSiteType)
   return _internal_m_esitetype();
 }
-inline void BasicParameters::_internal_set_m_esitetype(::Xparameters::BasicParameters_SiteType value) {
+inline void BasicParameters::_internal_set_m_esitetype(::Xproject::BasicParameters_SiteType value) {
   
   m_esitetype_ = value;
 }
-inline void BasicParameters::set_m_esitetype(::Xparameters::BasicParameters_SiteType value) {
+inline void BasicParameters::set_m_esitetype(::Xproject::BasicParameters_SiteType value) {
   _internal_set_m_esitetype(value);
-  // @@protoc_insertion_point(field_set:Xparameters.BasicParameters.m_eSiteType)
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_eSiteType)
 }
 
-// .Xparameters.BasicParameters.CalculateArea m_eCalArea = 4;
+// .Xproject.BasicParameters.CalculateArea m_eCalArea = 4;
 inline void BasicParameters::clear_m_ecalarea() {
   m_ecalarea_ = 0;
 }
-inline ::Xparameters::BasicParameters_CalculateArea BasicParameters::_internal_m_ecalarea() const {
-  return static_cast< ::Xparameters::BasicParameters_CalculateArea >(m_ecalarea_);
+inline ::Xproject::BasicParameters_CalculateArea BasicParameters::_internal_m_ecalarea() const {
+  return static_cast< ::Xproject::BasicParameters_CalculateArea >(m_ecalarea_);
 }
-inline ::Xparameters::BasicParameters_CalculateArea BasicParameters::m_ecalarea() const {
-  // @@protoc_insertion_point(field_get:Xparameters.BasicParameters.m_eCalArea)
+inline ::Xproject::BasicParameters_CalculateArea BasicParameters::m_ecalarea() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_eCalArea)
   return _internal_m_ecalarea();
 }
-inline void BasicParameters::_internal_set_m_ecalarea(::Xparameters::BasicParameters_CalculateArea value) {
+inline void BasicParameters::_internal_set_m_ecalarea(::Xproject::BasicParameters_CalculateArea value) {
   
   m_ecalarea_ = value;
 }
-inline void BasicParameters::set_m_ecalarea(::Xparameters::BasicParameters_CalculateArea value) {
+inline void BasicParameters::set_m_ecalarea(::Xproject::BasicParameters_CalculateArea value) {
   _internal_set_m_ecalarea(value);
-  // @@protoc_insertion_point(field_set:Xparameters.BasicParameters.m_eCalArea)
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_eCalArea)
 }
 
-// .Xparameters.BasicParameters.WindLoadCalMethod m_eWindCalMethod = 5;
+// .Xproject.BasicParameters.WindLoadCalMethod m_eWindCalMethod = 5;
 inline void BasicParameters::clear_m_ewindcalmethod() {
   m_ewindcalmethod_ = 0;
 }
-inline ::Xparameters::BasicParameters_WindLoadCalMethod BasicParameters::_internal_m_ewindcalmethod() const {
-  return static_cast< ::Xparameters::BasicParameters_WindLoadCalMethod >(m_ewindcalmethod_);
+inline ::Xproject::BasicParameters_WindLoadCalMethod BasicParameters::_internal_m_ewindcalmethod() const {
+  return static_cast< ::Xproject::BasicParameters_WindLoadCalMethod >(m_ewindcalmethod_);
 }
-inline ::Xparameters::BasicParameters_WindLoadCalMethod BasicParameters::m_ewindcalmethod() const {
-  // @@protoc_insertion_point(field_get:Xparameters.BasicParameters.m_eWindCalMethod)
+inline ::Xproject::BasicParameters_WindLoadCalMethod BasicParameters::m_ewindcalmethod() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_eWindCalMethod)
   return _internal_m_ewindcalmethod();
 }
-inline void BasicParameters::_internal_set_m_ewindcalmethod(::Xparameters::BasicParameters_WindLoadCalMethod value) {
+inline void BasicParameters::_internal_set_m_ewindcalmethod(::Xproject::BasicParameters_WindLoadCalMethod value) {
   
   m_ewindcalmethod_ = value;
 }
-inline void BasicParameters::set_m_ewindcalmethod(::Xparameters::BasicParameters_WindLoadCalMethod value) {
+inline void BasicParameters::set_m_ewindcalmethod(::Xproject::BasicParameters_WindLoadCalMethod value) {
   _internal_set_m_ewindcalmethod(value);
-  // @@protoc_insertion_point(field_set:Xparameters.BasicParameters.m_eWindCalMethod)
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_eWindCalMethod)
 }
 
-// .Xparameters.BasicParameters.SeismicFortification m_eSeismicFort = 6;
+// .Xproject.BasicParameters.SeismicFortification m_eSeismicFort = 6;
 inline void BasicParameters::clear_m_eseismicfort() {
   m_eseismicfort_ = 0;
 }
-inline ::Xparameters::BasicParameters_SeismicFortification BasicParameters::_internal_m_eseismicfort() const {
-  return static_cast< ::Xparameters::BasicParameters_SeismicFortification >(m_eseismicfort_);
+inline ::Xproject::BasicParameters_SeismicFortification BasicParameters::_internal_m_eseismicfort() const {
+  return static_cast< ::Xproject::BasicParameters_SeismicFortification >(m_eseismicfort_);
 }
-inline ::Xparameters::BasicParameters_SeismicFortification BasicParameters::m_eseismicfort() const {
-  // @@protoc_insertion_point(field_get:Xparameters.BasicParameters.m_eSeismicFort)
+inline ::Xproject::BasicParameters_SeismicFortification BasicParameters::m_eseismicfort() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_eSeismicFort)
   return _internal_m_eseismicfort();
 }
-inline void BasicParameters::_internal_set_m_eseismicfort(::Xparameters::BasicParameters_SeismicFortification value) {
+inline void BasicParameters::_internal_set_m_eseismicfort(::Xproject::BasicParameters_SeismicFortification value) {
   
   m_eseismicfort_ = value;
 }
-inline void BasicParameters::set_m_eseismicfort(::Xparameters::BasicParameters_SeismicFortification value) {
+inline void BasicParameters::set_m_eseismicfort(::Xproject::BasicParameters_SeismicFortification value) {
   _internal_set_m_eseismicfort(value);
-  // @@protoc_insertion_point(field_set:Xparameters.BasicParameters.m_eSeismicFort)
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_eSeismicFort)
 }
 
-// .Xparameters.BasicParameters.SeismicSiteType m_eSeismicSiteType = 7;
+// .Xproject.BasicParameters.SeismicSiteType m_eSeismicSiteType = 7;
 inline void BasicParameters::clear_m_eseismicsitetype() {
   m_eseismicsitetype_ = 0;
 }
-inline ::Xparameters::BasicParameters_SeismicSiteType BasicParameters::_internal_m_eseismicsitetype() const {
-  return static_cast< ::Xparameters::BasicParameters_SeismicSiteType >(m_eseismicsitetype_);
+inline ::Xproject::BasicParameters_SeismicSiteType BasicParameters::_internal_m_eseismicsitetype() const {
+  return static_cast< ::Xproject::BasicParameters_SeismicSiteType >(m_eseismicsitetype_);
 }
-inline ::Xparameters::BasicParameters_SeismicSiteType BasicParameters::m_eseismicsitetype() const {
-  // @@protoc_insertion_point(field_get:Xparameters.BasicParameters.m_eSeismicSiteType)
+inline ::Xproject::BasicParameters_SeismicSiteType BasicParameters::m_eseismicsitetype() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_eSeismicSiteType)
   return _internal_m_eseismicsitetype();
 }
-inline void BasicParameters::_internal_set_m_eseismicsitetype(::Xparameters::BasicParameters_SeismicSiteType value) {
+inline void BasicParameters::_internal_set_m_eseismicsitetype(::Xproject::BasicParameters_SeismicSiteType value) {
   
   m_eseismicsitetype_ = value;
 }
-inline void BasicParameters::set_m_eseismicsitetype(::Xparameters::BasicParameters_SeismicSiteType value) {
+inline void BasicParameters::set_m_eseismicsitetype(::Xproject::BasicParameters_SeismicSiteType value) {
   _internal_set_m_eseismicsitetype(value);
-  // @@protoc_insertion_point(field_set:Xparameters.BasicParameters.m_eSeismicSiteType)
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_eSeismicSiteType)
+}
+
+// double m_u_sl = 8;
+inline void BasicParameters::clear_m_u_sl() {
+  m_u_sl_ = 0;
+}
+inline double BasicParameters::_internal_m_u_sl() const {
+  return m_u_sl_;
+}
+inline double BasicParameters::m_u_sl() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_u_sl)
+  return _internal_m_u_sl();
+}
+inline void BasicParameters::_internal_set_m_u_sl(double value) {
+  
+  m_u_sl_ = value;
+}
+inline void BasicParameters::set_m_u_sl(double value) {
+  _internal_set_m_u_sl(value);
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_u_sl)
+}
+
+// double m_WindLoadNominalValue = 9;
+inline void BasicParameters::clear_m_windloadnominalvalue() {
+  m_windloadnominalvalue_ = 0;
+}
+inline double BasicParameters::_internal_m_windloadnominalvalue() const {
+  return m_windloadnominalvalue_;
+}
+inline double BasicParameters::m_windloadnominalvalue() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_WindLoadNominalValue)
+  return _internal_m_windloadnominalvalue();
+}
+inline void BasicParameters::_internal_set_m_windloadnominalvalue(double value) {
+  
+  m_windloadnominalvalue_ = value;
+}
+inline void BasicParameters::set_m_windloadnominalvalue(double value) {
+  _internal_set_m_windloadnominalvalue(value);
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_WindLoadNominalValue)
+}
+
+// double m_alpha_max = 10;
+inline void BasicParameters::clear_m_alpha_max() {
+  m_alpha_max_ = 0;
+}
+inline double BasicParameters::_internal_m_alpha_max() const {
+  return m_alpha_max_;
+}
+inline double BasicParameters::m_alpha_max() const {
+  // @@protoc_insertion_point(field_get:Xproject.BasicParameters.m_alpha_max)
+  return _internal_m_alpha_max();
+}
+inline void BasicParameters::_internal_set_m_alpha_max(double value) {
+  
+  m_alpha_max_ = value;
+}
+inline void BasicParameters::set_m_alpha_max(double value) {
+  _internal_set_m_alpha_max(value);
+  // @@protoc_insertion_point(field_set:Xproject.BasicParameters.m_alpha_max)
 }
 
 #ifdef __GNUC__
@@ -773,39 +866,39 @@ inline void BasicParameters::set_m_eseismicsitetype(::Xparameters::BasicParamete
 
 // @@protoc_insertion_point(namespace_scope)
 
-}  // namespace Xparameters
+}  // namespace Xproject
 
 PROTOBUF_NAMESPACE_OPEN
 
-template <> struct is_proto_enum< ::Xparameters::BasicParameters_DesignYears> : ::std::true_type {};
+template <> struct is_proto_enum< ::Xproject::BasicParameters_DesignYears> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Xparameters::BasicParameters_DesignYears>() {
-  return ::Xparameters::BasicParameters_DesignYears_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Xproject::BasicParameters_DesignYears>() {
+  return ::Xproject::BasicParameters_DesignYears_descriptor();
 }
-template <> struct is_proto_enum< ::Xparameters::BasicParameters_SiteType> : ::std::true_type {};
+template <> struct is_proto_enum< ::Xproject::BasicParameters_SiteType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Xparameters::BasicParameters_SiteType>() {
-  return ::Xparameters::BasicParameters_SiteType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Xproject::BasicParameters_SiteType>() {
+  return ::Xproject::BasicParameters_SiteType_descriptor();
 }
-template <> struct is_proto_enum< ::Xparameters::BasicParameters_CalculateArea> : ::std::true_type {};
+template <> struct is_proto_enum< ::Xproject::BasicParameters_CalculateArea> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Xparameters::BasicParameters_CalculateArea>() {
-  return ::Xparameters::BasicParameters_CalculateArea_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Xproject::BasicParameters_CalculateArea>() {
+  return ::Xproject::BasicParameters_CalculateArea_descriptor();
 }
-template <> struct is_proto_enum< ::Xparameters::BasicParameters_SeismicFortification> : ::std::true_type {};
+template <> struct is_proto_enum< ::Xproject::BasicParameters_SeismicFortification> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Xparameters::BasicParameters_SeismicFortification>() {
-  return ::Xparameters::BasicParameters_SeismicFortification_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Xproject::BasicParameters_SeismicFortification>() {
+  return ::Xproject::BasicParameters_SeismicFortification_descriptor();
 }
-template <> struct is_proto_enum< ::Xparameters::BasicParameters_SeismicSiteType> : ::std::true_type {};
+template <> struct is_proto_enum< ::Xproject::BasicParameters_SeismicSiteType> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Xparameters::BasicParameters_SeismicSiteType>() {
-  return ::Xparameters::BasicParameters_SeismicSiteType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Xproject::BasicParameters_SeismicSiteType>() {
+  return ::Xproject::BasicParameters_SeismicSiteType_descriptor();
 }
-template <> struct is_proto_enum< ::Xparameters::BasicParameters_WindLoadCalMethod> : ::std::true_type {};
+template <> struct is_proto_enum< ::Xproject::BasicParameters_WindLoadCalMethod> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::Xparameters::BasicParameters_WindLoadCalMethod>() {
-  return ::Xparameters::BasicParameters_WindLoadCalMethod_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::Xproject::BasicParameters_WindLoadCalMethod>() {
+  return ::Xproject::BasicParameters_WindLoadCalMethod_descriptor();
 }
 
 PROTOBUF_NAMESPACE_CLOSE
