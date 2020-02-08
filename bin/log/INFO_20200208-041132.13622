@@ -1,0 +1,6 @@
+Log file created at: 2020/02/08 04:11:32
+Running on machine: localhost.localdomain
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0208 04:11:32.042876 13622 main.cc:47] log test
+E0208 04:11:36.533032 13626 GlassAPIImpl.cc:12] Calculate
+I0208 04:11:36.533097 13626 GlassAPIImpl.cc:13] Calculate

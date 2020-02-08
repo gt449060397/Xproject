@@ -1,0 +1,15 @@
+Log file created at: 2020/02/08 17:40:29
+Running on machine: localhost.localdomain
+Log line format: [IWEF]mmdd hh:mm:ss.uuuuuu threadid file:line] msg
+E0208 17:40:29.601297 14290 main.cc:47] log test
+I0208 17:41:10.015771 14318 GlassAPIImpl.cc:12] params w0= 0.5
+I0208 17:41:10.015825 14318 GlassAPIImpl.cc:13] params m_edesignyears= 0
+I0208 17:41:10.015830 14318 GlassAPIImpl.cc:14] params m_esitetype= 1
+I0208 17:41:10.015833 14318 GlassAPIImpl.cc:15] params m_ecalarea= 0
+I0208 17:41:10.015836 14318 GlassAPIImpl.cc:16] params m_ewindcalmethod= 0
+I0208 17:41:10.015838 14318 GlassAPIImpl.cc:17] params m_eseismicfort= 0
+I0208 17:41:10.015841 14318 GlassAPIImpl.cc:18] params m_eseismicsitetype= 0
+I0208 17:41:10.015843 14318 GlassAPIImpl.cc:19] params height= 900
+I0208 17:41:10.015848 14318 GlassAPIImpl.cc:20] params width= 600
+I0208 17:41:10.015851 14318 GlassAPIImpl.cc:21] params thickness= 10
+I0208 17:41:10.015854 14318 GlassAPIImpl.cc:22] params mat= 0

@@ -11,16 +11,16 @@ BIT=$(shell getconf LONG_BIT)
 OUTPUTFILE=Xproject_Core_$(VERSION)_CENTOS$(OSV)_x86_$(BIT)bit_Bin.tar.gz
 
 #source code
-CC_SRC=$(wildcard grpcproto/startX/*.cc grpcproto/parameters/*.cc grpcproto/glass/*.cc calcucomponents/*.cc calcucomponents/columns/*.cc calcucomponents/connectors/*.cc calcucomponents/crossbeams/*.cc calcucomponents/embedded/*.cc calcucomponents/gums/*.cc calcucomponents/loads/*.cc calcucomponents/panels/*.cc)
+CC_SRC=$(wildcard grpcproto/startX/*.cc grpcproto/parameters/*.cc grpcproto/glass/*.cc calcucomponents/*.cc calcucomponents/columns/*.cc calcucomponents/connectors/*.cc calcucomponents/crossbeams/*.cc calcucomponents/embedded/*.cc calcucomponents/gums/*.cc calcucomponents/loads/*.cc calcucomponents/panels/*.cc loghelper/*.cc)
 
 #object
 CC_OBJ=$(patsubst %.cc, ./build/%.o, $(CC_SRC))
 
 #include_dir
-INC_DIR= -I./ -I ../export/glog/ -I ../export/jsonCpp/ -I ../export/tinyxml/ -I ../export/xmlConfig/ -I ./grpcproto/startX/ -I ./grpcproto/glass/ -I ./grpcproto/parameters/
+INC_DIR= -I./ -I ../export/glog/ -I ../export/jsonCpp/ -I ../export/tinyxml/ -I ../export/xmlConfig/ -I ./grpcproto/startX/ -I ./grpcproto/glass/ -I ./grpcproto/parameters/ -I ./loghelper/
 
 #lib_dir
-LIB_DIR=-L ../libs -L ../libs/glog/suse$(BIT) -L ../libs/tinyxml/ -L ../libs/xmlConfig/ -L ../libs/jsonCpp/suse$(BIT)
+LIB_DIR=-L ../libs -L ../libs/glog/suse$(BIT) -L ../libs/glog/ -L ../libs/tinyxml/ -L ../libs/xmlConfig/ -L ../libs/jsonCpp/suse$(BIT)
 
 #libs
 LIBS=-lxmlConfig$(BIT) -ljsonCpp -lglog -llog4cxx -ltinyxml$(BIT) -lapr -laprutil 
