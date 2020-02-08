@@ -34,3 +34,4 @@
 *.swp
 
 tags
+./bin
