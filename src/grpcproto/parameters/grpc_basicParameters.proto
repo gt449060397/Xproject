@@ -4,7 +4,7 @@ package Xproject;
 
 //Interface exported by the server
 
-message BasicParameters
+message grpc_BasicParameters
 {
 	enum DesignYears
 	{

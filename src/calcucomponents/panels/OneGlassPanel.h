@@ -10,15 +10,17 @@
 #include "GlassPanel.h"
 
 
-Class OneGlassPanel:public GlassPanel
+class OneGlassPanel:public GlassPanel
 {
 	public:
-		OneGlassPanel(double width,double height,double thickness,GlassMaterial mat):GlassPanel(mat),m_width(width),m_height(height),m_thickness(thickness){}
+		//	OneGlassPanel(double width,double height,double thickness,GlassMaterial mat):GlassPanel(mat),m_width(width),m_height(height),m_thickness(thickness){}
+		OneGlassPanel()=default;
 		virtual ~OneGlassPanel()=default;
 
-		bool Calculate()override;
-		bool CalculateBook()override;
+		virtual ResultBase* Calculate(BasicParameters *param) override;
 
+		//item calculate book
+		virtual std::string CalculateBook(BasicParameters *param) override ;
 
 	private:
 		double m_thickness;

@@ -6,16 +6,16 @@
  * */
 
 #pragma once
-
-
+#include "BasicParameters.h"
+#include "ResultBase.h"
+#include <string>
 
 class CalculateItem
 {
 	public:
 		//item check
-		virtual bool Calculate()=0;
+		virtual ResultBase* Calculate(BasicParameters *params)=0;
 
 		//item calculate book
-		virtual bool CalculateBook()=0;
-
+		virtual std::string  CalculateBook(BasicParameters *params)=0;
 };

@@ -3,9 +3,9 @@ syntax="proto3";
 package Xproject;
 
 //Interface exported by the server
-import "basicParameters.proto";
+import "grpc_basicParameters.proto";
 
-service GlassAPI
+service grpc_Glass
 {
      rpc Calculate(GlassRequest) returns (GlassCalReply){} 
 }
@@ -29,7 +29,7 @@ message GlassRequest
 		TEMPERED=1;//GANG HUA
 	}
 
-	Xproject.BasicParameters parameters=1;
+	Xproject.grpc_BasicParameters parameters=1;
 
 	double width=2;
 	double height=3;

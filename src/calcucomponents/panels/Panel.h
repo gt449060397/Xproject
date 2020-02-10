@@ -10,18 +10,17 @@
 #include "../CalculateItem.h"
 #include "../BasicParameters.h"
 
+//#include "ResultBase.h"
 
 class Panel:public CalculateItem
 {
   
 	public:
-		virtual bool Calculate() override {return false;}
+		virtual ResultBase* Calculate(BasicParameters *param) override {return NULL;}
 
 		//item calculate book
-		virtual bool CalculateBook() override {return false;}
-
+		virtual std::string CalculateBook(BasicParameters *param) override {return "";}
 	
-
 	protected:
 		double m_height;
 		double m_width;

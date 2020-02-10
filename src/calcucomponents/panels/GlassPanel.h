@@ -34,10 +34,10 @@ class GlassPanel:public Panel
 		GlassPanel(GlassMaterial mat):m_eMat(mat){}
 		virtual ~GlassPanel()=default;
 
-		virtual bool Calculate() override {return false;}
+		virtual ResultBase* Calculate(BasicParameters *param) override {return NULL;}
 
 		//item calculate book
-		virtual bool CalculateBook() override {return false;}
+		virtual std::string CalculateBook(BasicParameters *param) override {return "";}
 
 
 	protected:
@@ -65,7 +65,7 @@ class GlassPanel:public Panel
 
 		//zui da nao du ji suan
 		double CalMaxDeflection(double thickness,double w_k);
-	
+
 		//nao du xian suan
 		CheckResults CheckDeflection(double thickness,GlassLoadCombination &combination);
 	protected:
