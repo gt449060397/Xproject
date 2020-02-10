@@ -39,19 +39,21 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 		params=new BasicParameters();
 		//3 Calculate
 		result=glassInstance->Calculate(params);
+		Status grpcStatus;
 		if(result->m_status==ResultBase::OK)
 		{
 			response->set_result("Ok");
 
 			LOG(INFO)<<"glass calculate success!";
-			return Status::OK;
+			grpcStatus= Status::OK;
 		}
 		else
 		{
 			LOG(ERROR)<<"glass calculate failed!";
-			return Status::CANCELLED;
+			grpcStatus=  Status::CANCELLED;
 		}
 		FreeCalculate(params,glassInstance,result);
+		return grpcStatus;
 
 	}
 	catch(...)

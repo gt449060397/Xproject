@@ -3,6 +3,8 @@
 #include "ICalItemRegistrar.h"
 #include "CalItemFactory.h"
 #include <string>
+#include "GLogHelper.h"
+#include "OneGlassPanel.h"
 
 template <class CalItemType_t,class CalItemImpl_t>
 class CalItemRegistrar:public ICalItemRegistrar<CalItemType_t>
@@ -15,6 +17,7 @@ class CalItemRegistrar:public ICalItemRegistrar<CalItemType_t>
 
 		CalItemType_t *CreateCalItem()
 		{
+			LOG(INFO)<<"create cal item ";
 			return new CalItemImpl_t();
 		}
 };

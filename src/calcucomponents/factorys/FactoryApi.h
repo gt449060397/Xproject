@@ -11,6 +11,7 @@
 #include <string>
 #include "../CalculateItem.h"
 #include "OneGlassPanel.h"
+#include "GLogHelper.h"
 
  const  std::string OneGlassCalItem="OneGlassPanel";
 class FactoryApi
@@ -31,6 +32,8 @@ class FactoryApi
 		//calitems
 		CalculateItem* CreateCalItem(std::string name)
 		{
+			LOG(INFO)<<"create cal item "+name;
+			
 			return CalItemFactory<CalculateItem>::Instance().GetCalItem(name);
 		}
 	public:

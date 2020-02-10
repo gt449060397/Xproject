@@ -9,11 +9,9 @@
 
 #include "GlassPanel.h"
 
-
 class OneGlassPanel:public GlassPanel
 {
 	public:
-		//	OneGlassPanel(double width,double height,double thickness,GlassMaterial mat):GlassPanel(mat),m_width(width),m_height(height),m_thickness(thickness){}
 		OneGlassPanel()=default;
 		virtual ~OneGlassPanel()=default;
 

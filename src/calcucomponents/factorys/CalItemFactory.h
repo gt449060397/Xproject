@@ -30,6 +30,7 @@ class CalItemFactory
 
 		CalItemType_t* GetCalItem(std::string name)
 		{
+			LOG(INFO)<<"create cal item "+name;
 			if(m_CalItemRegistry.find(name)!=m_CalItemRegistry.end())
 			{
 				return m_CalItemRegistry[name]->CreateCalItem();
