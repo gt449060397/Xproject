@@ -10,34 +10,18 @@
 #include "Panel.h"
 #include "../CheckResults.h"
 #include "../loads/GlassLoadCombination.h"
+#include "GlassParameters.h"
 
 class GlassPanel:public Panel
 {
 	public:
-		enum GlassType
-		{
-			ONE=0,
-			HOLLOW=1,//ZHONG KONG
-			LAMINATE=2,//JIA CENG
-			HOLLOW_AND_LAMINATE=3,// ZHONG KONG + JIA CENG
-			DOUBLEHOLLOW=4,// SHUANG ZHONG KONG
-			DOUBLELAMINATE_AND_HOLLOW=5
-		};
-
-		enum GlassMaterial
-		{
-			FLAT=0,//PING BIAN
-			TEMPERED=1,//GANG HUA
-		};
-
 		GlassPanel()=default;
-		GlassPanel(GlassMaterial mat):m_eMat(mat){}
 		virtual ~GlassPanel()=default;
 
-		virtual ResultBase* Calculate(BasicParameters *param) override {return NULL;}
+		virtual ResultBase* Calculate(const BasicParameters *param) override {return NULL;}
 
 		//item calculate book
-		virtual std::string CalculateBook(BasicParameters *param) override {return "";}
+		virtual std::string CalculateBook(const BasicParameters *param) override {return "";}
 
 
 	protected:
@@ -50,7 +34,7 @@ class GlassPanel:public Panel
 		double Caltheta(double q_k,double shortSide,double thickness);
 
 		//qiang du she ji zhi
-		double GlassStrengthDesignValue(GlassMaterial mat,double thickness);
+		double GlassStrengthDesignValue(GlassParameters::GlassMaterial mat,double thickness);
 
 		//chang bian yu duan bian bi zhi
 		double CalShortAndLongSideRatio();
@@ -72,7 +56,6 @@ class GlassPanel:public Panel
 		const double m_gravityDensity=25.6;//zhong li mi du (kN/m3)
 		const double m_Eglass=72000000;//bo li tang xing mo liang(kN/m2)
 
-		GlassMaterial m_eMat;//cai zhi
-
+		GlassParameters *m_params;//can shu
 
 };

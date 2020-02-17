@@ -2,9 +2,15 @@
 
 #include "OneGlassPanel.h"
 
-ResultBase* OneGlassPanel::Calculate(BasicParameters *param){return NULL;}
+ResultBase* OneGlassPanel::Calculate(const BasicParameters *param)
+{
+	return NULL;
+}
 
 
 
 
-std::string OneGlassPanel::CalculateBook(BasicParameters *param){return "";}
+std::string OneGlassPanel::CalculateBook(const BasicParameters *param)
+{
+	return "";
+}

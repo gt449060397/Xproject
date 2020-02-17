@@ -74,12 +74,12 @@ double GlassPanel::CalBendingMomnentFactor(double shortAndlongSideRatio)
 	return bendingMomFactor;
 }
 
-double GlassPanel::GlassStrengthDesignValue(GlassMaterial mat,double thickness)
+double GlassPanel::GlassStrengthDesignValue(GlassParameters::GlassMaterial mat,double thickness)
 {
 	double strengthValue=0;
 	switch (mat)
 	{
-		case FLAT:
+		case GlassParameters::FLAT:
 			{
 				if (thickness>=5 &&thickness<15)
 				{
@@ -93,7 +93,7 @@ double GlassPanel::GlassStrengthDesignValue(GlassMaterial mat,double thickness)
 					strengthValue = 20;
 			}
 			break;
-		case TEMPERED:
+		case GlassParameters::TEMPERED:
 			{
 				if (thickness >= 5 && thickness < 15)
 				{
@@ -145,7 +145,7 @@ CheckResults GlassPanel::CheckStrength(double thickness,GlassLoadCombination &co
 
 	CheckResults results;
 	results.m_CalValue=CalGlassMaxStress(thickness,q,qk);
-	results.m_DesignValue=GlassStrengthDesignValue(m_eMat,thickness);
+	results.m_DesignValue=GlassStrengthDesignValue(m_params->m_eMat,thickness);
 	results.m_eResult=(results.m_CalValue<=results.m_DesignValue)?CheckResults::PASS:CheckResults::Fail;
 	results.m_Surplus=(results.m_DesignValue-results.m_CalValue)*100/results.m_DesignValue;
 

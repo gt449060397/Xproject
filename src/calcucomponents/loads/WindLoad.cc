@@ -17,14 +17,14 @@ double WindLoad::CalNominalValue()
 	//2 gao du bian hua xi shu
 	CalHeightVariationCoefficient();
 
-	double nominalValue=m_beta_gz*m_u_z*Calu_sl(m_calPart,m_area)*m_parameters.Getw0();
-	switch(m_parameters.GetWindLoadCalMethod())
+	double nominalValue=m_beta_gz*m_u_z*Calu_sl(m_calPart,m_area)*m_parameters.m_w0;
+	switch(m_parameters.m_eWindCalMethod)
 	{
 		case BasicParameters::LOADCODE:
 			nominalValue=std::max(nominalValue,1.0);
 			break;
 		case BasicParameters::CUSTOMIZE:
-			nominalValue=m_parameters.GetWindLoadNominalValue();
+			nominalValue=m_parameters.m_WindLoadNominalValue;
 			break;
 	}
 	
@@ -35,7 +35,7 @@ double WindLoad::CalNominalValue()
 void WindLoad::CalGustCoefficient()
 {
 	double height=CalTruncatedHeight();
-	switch(m_parameters.GetSiteType())
+	switch(m_parameters.m_eSiteType)
 	{
 		case BasicParameters::A:
 			m_beta_gz=1.0+0.6*pow(height/10.0,-0.12);
@@ -60,7 +60,7 @@ void WindLoad::CalGustCoefficient()
 void WindLoad::CalHeightVariationCoefficient()
 {
 	double height=CalTruncatedHeight();
-	switch(m_parameters.GetSiteType())
+	switch(m_parameters.m_eSiteType)
 	{
 		case BasicParameters::A:
 			m_u_z=1.284*pow(height/10.0,0.24);
@@ -85,7 +85,7 @@ void WindLoad::CalHeightVariationCoefficient()
 double WindLoad::CalTruncatedHeight()
 {
 	double truncatedHeight=m_height;
-	switch(m_parameters.GetSiteType())
+	switch(m_parameters.m_eSiteType)
 	{
 		case BasicParameters::A:
 			if(m_height>300)truncatedHeight=300;
@@ -135,7 +135,7 @@ double WindLoad::Calu_sl(const CalPart calPart,double area)
 double WindLoad::Calu_sl_panel()
 {
 	double u_sl=0;
-	switch(m_parameters.GetCalArea())
+	switch(m_parameters.m_eCalArea)
 	{
 		case BasicParameters::Corner:
 			u_sl=1.6;
@@ -144,7 +144,7 @@ double WindLoad::Calu_sl_panel()
 			u_sl=1.2;
 			break;
 		case BasicParameters::Other:
-			u_sl=m_parameters.Getu_sl();
+			u_sl=m_parameters.m_u_sl;
 			break;
 		default:
 			u_sl=1.0;
@@ -155,7 +155,7 @@ double WindLoad::Calu_sl_panel()
 double WindLoad::Calu_sl_supportStucture(double area)
 {
 	double u_sl=0;
-	switch(m_parameters.GetCalArea())
+	switch(m_parameters.m_eCalArea)
 	{
 		case BasicParameters::Corner:
 			u_sl=1.4;
@@ -164,7 +164,7 @@ double WindLoad::Calu_sl_supportStucture(double area)
 			u_sl=1.0;
 			break;
 		case BasicParameters::Other:
-			return u_sl=m_parameters.Getu_sl();
+			return u_sl=m_parameters.m_u_sl;
 			break;
 		default:
 			u_sl=1.0;

@@ -14,7 +14,7 @@
 #include "grpcproto/glass/GlassAPIImpl.h"
 #include "GLogHelper.h"
 #include <exception>
-
+#include "RegisterCalItems.h"
 using grpc::Server;
 using grpc::ServerBuilder;
 using grpc::ServerContext;
@@ -55,6 +55,9 @@ int main(int argc,char**argv)
 {
 	GLogHelper logHelper;
 	logHelper.InitLogger();
+
+	RegisterCalItems registerItems;
+	registerItems.RegiterAllItems();
 	RunServer();
 	return 0;
 }

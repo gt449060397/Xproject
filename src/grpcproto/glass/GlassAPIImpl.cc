@@ -1,9 +1,8 @@
 #include "GlassAPIImpl.h"
 #include "grpc_basicParameters.pb.h"
 #include "GLogHelper.h"
-#include "FactoryApi.h"
-
-//using Xproject::BasicParameters;
+#include "ICalItemRegistrar.h"
+#include "OneGlassPanel.h"
 
 Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *request, GlassCalReply* response)
 {
@@ -13,7 +12,6 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 	try
 	{
 		Xproject::grpc_BasicParameters requestparams=request->parameters();
-
 
 		LOG(INFO)<<"requestparams w0= "<<requestparams.w0();
 		LOG(INFO)<<"requestparams m_edesignyears= "<<requestparams.m_edesignyears();
@@ -31,30 +29,41 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 		LOG(INFO)<<"requestparams mat= "<<request->mat();
 		LOG(INFO)<<"requestparams type= "<<request->type();
 
+		LOG(INFO)<<"glassType: "<<GlassParameters::GlassTypeStrs[request->type()];
 		//1 Create glass instence
-		glassInstance=FactoryApi::Instance()->CreateCalItem(OneGlassCalItem);
+		glassInstance=CalItemFactory<CalculateItem>::Instance().GetCalItem(GlassParameters::GlassTypeStrs[request->type()]);
 
-		//2 Create parameters
-
-		params=new BasicParameters();
-		//3 Calculate
-		result=glassInstance->Calculate(params);
 		Status grpcStatus;
-		if(result->m_status==ResultBase::OK)
+		if(glassInstance==nullptr)
 		{
-			response->set_result("Ok");
-
-			LOG(INFO)<<"glass calculate success!";
-			grpcStatus= Status::OK;
+			response->set_result("failed!");
+			LOG(ERROR)<<"glass calculate instance create  failed!";
+			grpcStatus=  Status::OK;
 		}
 		else
 		{
-			LOG(ERROR)<<"glass calculate failed!";
-			grpcStatus=  Status::CANCELLED;
+			//2 Create parameters
+			params=new GlassParameters(request);
+
+			//3 Calculate
+			result=glassInstance->Calculate(params);
+			if(result!=nullptr&&result->m_status==ResultBase::OK)
+			{
+				response->set_result("Ok");
+
+				LOG(INFO)<<"glass calculate success!";
+				grpcStatus= Status::OK;
+			}
+			else
+			{
+				response->set_result("failed!");
+				LOG(ERROR)<<"glass calculate failed!";
+				grpcStatus=  Status::OK;
+			}
 		}
+
 		FreeCalculate(params,glassInstance,result);
 		return grpcStatus;
-
 	}
 	catch(...)
 	{
@@ -84,3 +93,4 @@ void GlassAPIImpl::FreeCalculate(BasicParameters *param,CalculateItem *calItem,R
 		result=nullptr;
 	}
 }
+

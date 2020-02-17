@@ -8,19 +8,26 @@
 #pragma once
 
 #include "GlassPanel.h"
+#include "GlassParameters.h"
+#include "ICalItemRegistrar.h"
 
 class OneGlassPanel:public GlassPanel
 {
 	public:
-		OneGlassPanel()=default;
+		OneGlassPanel()
+		{
+		}
 		virtual ~OneGlassPanel()=default;
 
-		virtual ResultBase* Calculate(BasicParameters *param) override;
+		virtual ResultBase* Calculate(const BasicParameters *param) override;
 
 		//item calculate book
-		virtual std::string CalculateBook(BasicParameters *param) override ;
+		virtual std::string CalculateBook(const BasicParameters *param) override ;
 
-	private:
-		double m_thickness;
+		//init
+		void Init(BasicParameters *parameters);
+
 
 };
+
+

@@ -14,8 +14,8 @@ class CalculateItem
 {
 	public:
 		//item check
-		virtual ResultBase* Calculate(BasicParameters *params)=0;
+		virtual ResultBase* Calculate(const BasicParameters *params)=0;
 
 		//item calculate book
-		virtual std::string  CalculateBook(BasicParameters *params)=0;
+		virtual std::string  CalculateBook(const BasicParameters *params)=0;
 };
