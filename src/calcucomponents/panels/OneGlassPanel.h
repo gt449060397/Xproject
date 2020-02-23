@@ -24,8 +24,6 @@ class OneGlassPanel:public GlassPanel
 		//item calculate book
 		virtual std::string CalculateBook(const BasicParameters *param) override ;
 
-		//init
-		void Init(BasicParameters *parameters);
 
 
 };

@@ -11,9 +11,12 @@ class RegisterCalItems
 {
 
 	public:
-		 void RegiterAllItems();
-		 void RegiterGlassItems();
+		static void RegiterAllItems();
+	
+		static void RegiterGlassItems();
 };
+
+
 
 
 

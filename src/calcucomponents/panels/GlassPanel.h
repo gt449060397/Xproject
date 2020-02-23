@@ -53,9 +53,9 @@ class GlassPanel:public Panel
 		//nao du xian suan
 		CheckResults CheckDeflection(double thickness,GlassLoadCombination &combination);
 	protected:
-		const double m_gravityDensity=25.6;//zhong li mi du (kN/m3)
-		const double m_Eglass=72000000;//bo li tang xing mo liang(kN/m2)
+		const static double m_gravityDensity;//zhong li mi du (kN/m3)
+		const static  double m_Eglass;//bo li tang xing mo liang(kN/m2)
 
-		GlassParameters *m_params;//can shu
+		const GlassParameters *m_params;//can shu
 
 };

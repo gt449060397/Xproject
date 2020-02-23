@@ -51,13 +51,12 @@ void RunServer()
 	}
 }
 
+
 int main(int argc,char**argv)
 {
 	GLogHelper logHelper;
 	logHelper.InitLogger();
-
-	RegisterCalItems registerItems;
-	registerItems.RegiterAllItems();
+	RegisterCalItems::RegiterAllItems();
 	RunServer();
 	return 0;
 }

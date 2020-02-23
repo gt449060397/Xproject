@@ -52,12 +52,7 @@ class CalItemFactory
 			LOG(INFO)<<"m_CalItemRegistry.size(): "<<m_CalItemRegistry.size();
 			if(m_CalItemRegistry.find(name)!=m_CalItemRegistry.end())
 			{
-				auto item=m_CalItemRegistry[name];
-				LOG(INFO)<<"create oneglasspanel item "+name;
-				auto glass= item->CreateCalItem();
-
 				return m_CalItemRegistry[name]->CreateCalItem();
-
 			}
 
 			LOG(ERROR)<<"No CalItem found for "<<name;
@@ -88,7 +83,6 @@ class CalItemRegistrar:public ICalItemRegistrar<CalItemType_t>
 
 		CalItemType_t *CreateCalItem()override
 		{
-			LOG(INFO)<<"create cal item ";
 			return new CalItemImpl_t();
 		}
 };

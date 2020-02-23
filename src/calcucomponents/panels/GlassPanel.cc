@@ -2,6 +2,8 @@
 #include "GlassPanel.h"
 #include <math.h>
 
+const double GlassPanel::m_gravityDensity=25.6;
+const double GlassPanel::m_Eglass=72000000;
 double GlassPanel::CalReductionFactor(double theta)
 {
 	double reductionFactor=0;
