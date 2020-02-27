@@ -74,4 +74,6 @@ struct BasicParameters
 
 	double m_alpha_max;//di zheng can shu
 
+	double m_calHeight; //ji suan gao du (m)
+
 };

@@ -10,6 +10,7 @@
 #include "BasicParameters.h"
 #include "grpc_basicParameters.pb.h"
 #include "grpc_glass.grpc.pb.h"
+#include <vector>
 
 using Xproject::grpc_Glass;                                      
 using Xproject::GlassRequest;
@@ -37,8 +38,11 @@ struct GlassParameters:public BasicParameters
 	virtual ~GlassParameters()=default;
 
 
+	double m_height;
+	double m_width;
 	GlassMaterial m_eMat;
 
+	std::vector<double>m_thickness;//bo li hou du (mm) (out->in)
 
 	static const std::string GlassTypeStrs[6];
 };

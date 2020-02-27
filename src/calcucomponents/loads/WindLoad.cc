@@ -84,27 +84,27 @@ void WindLoad::CalHeightVariationCoefficient()
 
 double WindLoad::CalTruncatedHeight()
 {
-	double truncatedHeight=m_height;
+	double truncatedHeight=m_parameters.m_calHeight;
 	switch(m_parameters.m_eSiteType)
 	{
 		case BasicParameters::A:
-			if(m_height>300)truncatedHeight=300;
-			if(m_height<5) truncatedHeight=5;
+			if(m_parameters.m_calHeight>300)truncatedHeight=300;
+			if(m_parameters.m_calHeight<5) truncatedHeight=5;
 			break;
 		case BasicParameters::B:
-			if(m_height>350)truncatedHeight=350;
-			if(m_height<10)truncatedHeight=10;
+			if(m_parameters.m_calHeight>350)truncatedHeight=350;
+			if(m_parameters.m_calHeight<10)truncatedHeight=10;
 			break;
 		case BasicParameters::C:
-			if(m_height>450)truncatedHeight=450;
-			if(m_height<15) truncatedHeight=15;
+			if(m_parameters.m_calHeight>450)truncatedHeight=450;
+			if(m_parameters.m_calHeight<15) truncatedHeight=15;
 			break;
 		case BasicParameters::D:
-			if(m_height>550)truncatedHeight=550;
-			if(m_height<30)truncatedHeight=30;
+			if(m_parameters.m_calHeight>550)truncatedHeight=550;
+			if(m_parameters.m_calHeight<30)truncatedHeight=30;
 			break;
 		default:
-			truncatedHeight=m_height;
+			truncatedHeight=m_parameters.m_calHeight;
 			break;
 
 	}

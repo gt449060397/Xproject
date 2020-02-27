@@ -10,15 +10,16 @@
 struct CheckResults
 {
 	
-	enum Result
+	enum eResult
 	{
 		PASS=0,
 		Fail=1,
 	};
 
-	Result m_eResult;//jie guo
+	eResult m_eResult;//jie guo
 	double m_DesignValue;// she ji zhi
 	double m_CalValue;//ji suan zhi
 	double m_Surplus;//fu yu
+	int m_CheckType;//yan suan lei xing
 };
 

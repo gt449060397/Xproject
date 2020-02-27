@@ -18,10 +18,10 @@ class GlassPanel:public Panel
 		GlassPanel()=default;
 		virtual ~GlassPanel()=default;
 
-		virtual ResultBase* Calculate(const BasicParameters *param) override {return NULL;}
+		virtual ResultBase* Calculate(std::shared_ptr<BasicParameters>param) override {return NULL;}
 
 		//item calculate book
-		virtual std::string CalculateBook(const BasicParameters *param) override {return "";}
+		virtual std::string CalculateBook(std::shared_ptr<BasicParameters>param) override {return "";}
 
 
 	protected:
@@ -56,6 +56,6 @@ class GlassPanel:public Panel
 		const static double m_gravityDensity;//zhong li mi du (kN/m3)
 		const static  double m_Eglass;//bo li tang xing mo liang(kN/m2)
 
-		const GlassParameters *m_params;//can shu
+		std::shared_ptr<GlassParameters> m_params;//can shu
 
 };

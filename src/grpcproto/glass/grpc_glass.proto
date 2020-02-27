@@ -10,7 +10,7 @@ service grpc_Glass
      rpc Calculate(GlassRequest) returns (GlassCalReply){} 
 }
 
-
+//request params
 message GlassRequest
 {
 	enum GlassType
@@ -34,15 +34,15 @@ message GlassRequest
 	double width=2;
 	double height=3;
 	GlassMaterial mat=4;
-	double thickness=5;
+	repeated double thickness=5;
 	GlassType type=6;
 
 
 }
-
-
+//result params
 message GlassCalReply
 {
+
 	string result=1;
 
 }

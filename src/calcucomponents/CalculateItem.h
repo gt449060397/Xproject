@@ -9,13 +9,13 @@
 #include "BasicParameters.h"
 #include "ResultBase.h"
 #include <string>
-
+#include <memory>
 class CalculateItem
 {
 	public:
 		//item check
-		virtual ResultBase* Calculate(const BasicParameters *params)=0;
+		virtual ResultBase* Calculate(std::shared_ptr<BasicParameters>params)=0;
 
 		//item calculate book
-		virtual std::string  CalculateBook(const BasicParameters *params)=0;
+		virtual std::string  CalculateBook(std::shared_ptr<BasicParameters>params)=0;
 };

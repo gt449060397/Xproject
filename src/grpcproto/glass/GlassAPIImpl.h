@@ -20,8 +20,6 @@ class GlassAPIImpl:public grpc_Glass::Service
 
 
 	private:
-		void FreeCalculate(BasicParameters *param,CalculateItem *calItem,ResultBase *result);
-		bool ReceviceRequestParams(const GlassRequest *request,BasicParameters *parameters);
 };
 
 

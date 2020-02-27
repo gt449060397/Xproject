@@ -13,18 +13,18 @@
 
 class OneGlassPanel:public GlassPanel
 {
+	
+
 	public:
 		OneGlassPanel()
 		{
 		}
 		virtual ~OneGlassPanel()=default;
 
-		virtual ResultBase* Calculate(const BasicParameters *param) override;
+		virtual ResultBase* Calculate(std::shared_ptr<BasicParameters>param) override;
 
 		//item calculate book
-		virtual std::string CalculateBook(const BasicParameters *param) override ;
-
-
+		virtual std::string CalculateBook(std::shared_ptr<BasicParameters>param) override ;
 
 };
 

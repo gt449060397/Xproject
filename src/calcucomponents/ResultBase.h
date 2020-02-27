@@ -1,14 +1,7 @@
 #pragma once
+#include "CheckResults.h"
 
 struct ResultBase
 {
-
-	enum ResultStatus
-	{
-		OK=0,
-		FAIL=1,
-	};
-
-
-	ResultStatus m_status;
+	CheckResults::eResult m_eFinalResult;
 };

@@ -16,14 +16,12 @@ class Panel:public CalculateItem
 {
   
 	public:
-		virtual ResultBase* Calculate(const BasicParameters *param) override {return NULL;}
+		virtual ResultBase* Calculate(std::shared_ptr<BasicParameters>param) override {return NULL;}
 
 		//item calculate book
-		virtual std::string CalculateBook(const BasicParameters *param) override {return "";}
+		virtual std::string CalculateBook(std::shared_ptr<BasicParameters>param) override {return "";}
 	
 	protected:
-		double m_height;
-		double m_width;
 
 };
 

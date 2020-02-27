@@ -66,4 +66,5 @@ message grpc_BasicParameters
 
 	double m_alpha_max=10;//di zheng can shu
 
+	double m_calHeight=11; //ji suan gao du (m)
 }

@@ -3,12 +3,13 @@
 #include "GLogHelper.h"
 #include "ICalItemRegistrar.h"
 #include "OneGlassPanel.h"
+#include <memory>
 
 Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *request, GlassCalReply* response)
 {
-	BasicParameters *params=nullptr;
-	ResultBase *result=nullptr;
-	CalculateItem* glassInstance=nullptr;
+	//BasicParameters *params=nullptr;
+	//ResultBase *result=nullptr;
+	//CalculateItem* glassInstance=nullptr;
 	try
 	{
 		Xproject::grpc_BasicParameters requestparams=request->parameters();
@@ -31,10 +32,10 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 
 		LOG(INFO)<<"glassType: "<<GlassParameters::GlassTypeStrs[request->type()];
 		//1 Create glass instence
-		glassInstance=CalItemFactory<CalculateItem>::Instance().GetCalItem(GlassParameters::GlassTypeStrs[request->type()]);
+		std::shared_ptr<CalculateItem>glassInstance(CalItemFactory<CalculateItem>::Instance().GetCalItem(GlassParameters::GlassTypeStrs[request->type()]));
 
 		Status grpcStatus;
-		if(glassInstance==nullptr)
+		if(!glassInstance)
 		{
 			response->set_result("failed!");
 			LOG(ERROR)<<"glass calculate instance create  failed!";
@@ -43,11 +44,11 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 		else
 		{
 			//2 Create parameters
-			params=new GlassParameters(request);
+			std::shared_ptr<BasicParameters>params(new GlassParameters(request));
 
 			//3 Calculate
-			result=glassInstance->Calculate(params);
-			if(result!=nullptr&&result->m_status==ResultBase::OK)
+			std::shared_ptr<ResultBase>result(glassInstance->Calculate(params));
+			if(result)
 			{
 				response->set_result("Ok");
 
@@ -62,35 +63,13 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 			}
 		}
 
-		FreeCalculate(params,glassInstance,result);
 		return grpcStatus;
 	}
 	catch(...)
 	{
 		LOG(ERROR)<<"glass calculate exception!";
-		FreeCalculate(params,glassInstance,result);
 		return Status::CANCELLED;
 	}
 }
 
-
-void GlassAPIImpl::FreeCalculate(BasicParameters *param,CalculateItem *calItem,ResultBase *result)
-{
-	if(param)
-	{
-		delete param;
-		param=nullptr;
-	}
-	if(calItem)
-	{
-		delete calItem;
-		calItem=nullptr;
-	}
-
-	if(result)
-	{
-		delete result;
-		result=nullptr;
-	}
-}
 

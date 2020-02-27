@@ -122,8 +122,8 @@ double GlassPanel::Caltheta(double q_k,double shortSide,double thickness)
 
 double GlassPanel::CalShortAndLongSideRatio()
 {
-	double shortSide=(m_width<=m_height)?m_width:m_height;
-	double longSide=(m_width<=m_height)?m_height:m_width;
+	double shortSide=(m_params->m_width<=m_params->m_height)?m_params->m_width:m_params->m_height;
+	double longSide=(m_params->m_width<=m_params->m_height)?m_params->m_height:m_params->m_width;
 
 	return shortSide/longSide;
 }
@@ -131,7 +131,7 @@ double GlassPanel::CalShortAndLongSideRatio()
 double GlassPanel::CalGlassMaxStress(double thickness,double q,double q_k)
 {
 	double bendingMomFactor=CalBendingMomnentFactor(CalShortAndLongSideRatio());
-	double shortSide=(m_width<=m_height)?m_width:m_height;
+	double shortSide=(m_params->m_width<=m_params->m_height)?m_params->m_width:m_params->m_height;
 	double theta=Caltheta(q_k,shortSide,thickness);
 	double reductionFactor=CalReductionFactor(theta);
 	//maxStress(MPa)
@@ -196,7 +196,7 @@ double GlassPanel::CalMaxDeflection(double thickness,double w_k)
 {
 
 	double deflectionFactor=CalDeflectionFactor(CalShortAndLongSideRatio());
-	double shortSide=(m_width<=m_height)?m_width:m_height;
+	double shortSide=(m_params->m_width<=m_params->m_height)?m_params->m_width:m_params->m_height;
 	double theta=Caltheta(w_k,shortSide,thickness);
 	double reductionFactor=CalReductionFactor(theta);
 	double glassStiffness=m_Eglass*pow(shortSide/1000,3)/(12*(1-0.04));
@@ -212,7 +212,7 @@ CheckResults GlassPanel::CheckDeflection(double thickness,GlassLoadCombination &
 	double w_k=combination.GetWindLoad().CalNominalValue();
 	CheckResults results;
 	results.m_CalValue=CalMaxDeflection(thickness,w_k);
-	double shortSide=(m_width<=m_height)?m_width:m_height;//(mm)
+	double shortSide=(m_params->m_width<=m_params->m_height)?m_params->m_width:m_params->m_height;//(mm)
 	results.m_DesignValue=shortSide/60;
 	results.m_eResult=(results.m_CalValue<=results.m_DesignValue)?CheckResults::PASS:CheckResults::Fail;
 	results.m_Surplus=(results.m_DesignValue-results.m_CalValue)*100/results.m_DesignValue;
