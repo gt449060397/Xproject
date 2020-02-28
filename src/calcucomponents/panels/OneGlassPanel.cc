@@ -25,11 +25,12 @@ ResultBase* OneGlassPanel::Calculate(std::shared_ptr<BasicParameters> param)
 		auto result=new CommonCalResult();
 		//strength check
 		auto resStrength=CheckStrength(m_params->m_thickness[0],loadCombination);
+		resStrength.m_CheckType=STRENGTH;
 		result->m_CheckResults.push_back(resStrength);
 
 		// deflection check
 		auto resDeflection=CheckDeflection(m_params->m_thickness[0],loadCombination);
-
+		resDeflection.m_CheckType=DEFLECTION;
 		result->m_CheckResults.push_back(resDeflection);
 
 		return result;

@@ -2,3 +2,25 @@ syntax="proto3";
 
 package Xproject;
 
+
+//checkResult
+message grpc_CheckResults
+{
+	enum eResult
+	{
+		PASS=0;
+		FAIL=1;
+	}
+
+	eResult m_eResult=1;
+	double m_DesignValue=2;
+	double m_CalValue=3;
+	double m_Surplus=4;
+	int32 m_CheckTpye=5;
+}
+
+
+message grpc_CommonCalResult
+{
+	repeated grpc_CheckResults m_CheckResults=1;
+}

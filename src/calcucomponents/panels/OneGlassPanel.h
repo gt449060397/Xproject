@@ -16,6 +16,11 @@ class OneGlassPanel:public GlassPanel
 	
 
 	public:
+		enum eOneGlassPanelResultType
+		{
+			STRENGTH=0,
+			DEFLECTION=1,	
+		};
 		OneGlassPanel()
 		{
 		}

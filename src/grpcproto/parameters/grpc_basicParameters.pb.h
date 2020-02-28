@@ -540,6 +540,7 @@ class grpc_BasicParameters :
     kMUSlFieldNumber = 8,
     kMWindLoadNominalValueFieldNumber = 9,
     kMAlphaMaxFieldNumber = 10,
+    kMCalHeightFieldNumber = 11,
   };
   // double w0 = 1;
   void clear_w0();
@@ -631,6 +632,15 @@ class grpc_BasicParameters :
   void _internal_set_m_alpha_max(double value);
   public:
 
+  // double m_calHeight = 11;
+  void clear_m_calheight();
+  double m_calheight() const;
+  void set_m_calheight(double value);
+  private:
+  double _internal_m_calheight() const;
+  void _internal_set_m_calheight(double value);
+  public:
+
   // @@protoc_insertion_point(class_scope:Xproject.grpc_BasicParameters)
  private:
   class _Internal;
@@ -646,6 +656,7 @@ class grpc_BasicParameters :
   double m_u_sl_;
   double m_windloadnominalvalue_;
   double m_alpha_max_;
+  double m_calheight_;
   mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   friend struct ::TableStruct_grpc_5fbasicParameters_2eproto;
 };
@@ -858,6 +869,26 @@ inline void grpc_BasicParameters::_internal_set_m_alpha_max(double value) {
 inline void grpc_BasicParameters::set_m_alpha_max(double value) {
   _internal_set_m_alpha_max(value);
   // @@protoc_insertion_point(field_set:Xproject.grpc_BasicParameters.m_alpha_max)
+}
+
+// double m_calHeight = 11;
+inline void grpc_BasicParameters::clear_m_calheight() {
+  m_calheight_ = 0;
+}
+inline double grpc_BasicParameters::_internal_m_calheight() const {
+  return m_calheight_;
+}
+inline double grpc_BasicParameters::m_calheight() const {
+  // @@protoc_insertion_point(field_get:Xproject.grpc_BasicParameters.m_calHeight)
+  return _internal_m_calheight();
+}
+inline void grpc_BasicParameters::_internal_set_m_calheight(double value) {
+  
+  m_calheight_ = value;
+}
+inline void grpc_BasicParameters::set_m_calheight(double value) {
+  _internal_set_m_calheight(value);
+  // @@protoc_insertion_point(field_set:Xproject.grpc_BasicParameters.m_calHeight)
 }
 
 #ifdef __GNUC__

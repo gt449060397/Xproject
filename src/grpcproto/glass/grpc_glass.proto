@@ -4,25 +4,27 @@ package Xproject;
 
 //Interface exported by the server
 import "grpc_basicParameters.proto";
+import "grpc_checkResult.proto";
 
 service grpc_Glass
 {
      rpc Calculate(GlassRequest) returns (GlassCalReply){} 
 }
 
+
+
+enum grpc_GlassType
+{
+	ONE=0;
+	HOLLOW=1;//ZHONG KONG
+	LAMINATE=2;//JIA CENG
+	HOLLOW_AND_LAMINATE=3;// ZHONG KONG + JIA CENG
+	DOUBLEHOLLOW=4;// SHUANG ZHONG KONG
+	DOUBLELAMINATE_AND_HOLLOW=5;
+}
 //request params
 message GlassRequest
 {
-	enum GlassType
-	{
-		ONE=0;
-		HOLLOW=1;//ZHONG KONG
-		LAMINATE=2;//JIA CENG
-		HOLLOW_AND_LAMINATE=3;// ZHONG KONG + JIA CENG
-		DOUBLEHOLLOW=4;// SHUANG ZHONG KONG
-		DOUBLELAMINATE_AND_HOLLOW=5;
-	}
-
 	enum GlassMaterial
 	{
 		FLAT=0;//PING BIAN
@@ -35,21 +37,27 @@ message GlassRequest
 	double height=3;
 	GlassMaterial mat=4;
 	repeated double thickness=5;
-	GlassType type=6;
+	grpc_GlassType type=6;
 
+}
 
+//check result type
+enum grpc_eOneGlassPanelResultType
+{
+	STRENGTH=0;
+	DEFLECTION=1;
 }
 //result params
 message GlassCalReply
 {
-
-	string result=1;
-
+	Xproject.grpc_CommonCalResult calResults=1;
+	grpc_GlassType type=2;
+	string description=3;
 }
+
 
 message GlassBookReply
 {
 
 	string result=1;
-
 }

@@ -7,9 +7,6 @@
 
 Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *request, GlassCalReply* response)
 {
-	//BasicParameters *params=nullptr;
-	//ResultBase *result=nullptr;
-	//CalculateItem* glassInstance=nullptr;
 	try
 	{
 		Xproject::grpc_BasicParameters requestparams=request->parameters();
@@ -26,7 +23,12 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 		LOG(INFO)<<"requestparams m_windloadnominalvalue= "<<requestparams.m_windloadnominalvalue();
 		LOG(INFO)<<"requestparams height= "<<request->height();
 		LOG(INFO)<<"requestparams width= "<<request->width();
-		LOG(INFO)<<"requestparams thickness= "<<request->thickness();
+
+		LOG(INFO)<<"requestparams thickness_size= "<<request->thickness_size();
+		for(int i=0;i<request->thickness_size();i++)
+		{
+			LOG(INFO)<<"requestparams thickness index= "<<i<<"thickness value"<<request->thickness(i);
+		}
 		LOG(INFO)<<"requestparams mat= "<<request->mat();
 		LOG(INFO)<<"requestparams type= "<<request->type();
 
@@ -37,7 +39,7 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 		Status grpcStatus;
 		if(!glassInstance)
 		{
-			response->set_result("failed!");
+			response->set_description("failed!");
 			LOG(ERROR)<<"glass calculate instance create  failed!";
 			grpcStatus=  Status::OK;
 		}
@@ -50,19 +52,18 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 			std::shared_ptr<ResultBase>result(glassInstance->Calculate(params));
 			if(result)
 			{
-				response->set_result("Ok");
+				response->set_description("Ok");
 
 				LOG(INFO)<<"glass calculate success!";
 				grpcStatus= Status::OK;
 			}
 			else
 			{
-				response->set_result("failed!");
+				response->set_description("failed!");
 				LOG(ERROR)<<"glass calculate failed!";
 				grpcStatus=  Status::OK;
 			}
 		}
-
 		return grpcStatus;
 	}
 	catch(...)

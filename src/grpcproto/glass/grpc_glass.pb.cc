@@ -15,6 +15,7 @@
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
 extern PROTOBUF_INTERNAL_EXPORT_grpc_5fbasicParameters_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_grpc_BasicParameters_grpc_5fbasicParameters_2eproto;
+extern PROTOBUF_INTERNAL_EXPORT_grpc_5fcheckResult_2eproto ::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_grpc_CommonCalResult_grpc_5fcheckResult_2eproto;
 namespace Xproject {
 class GlassRequestDefaultTypeInternal {
  public:
@@ -54,8 +55,9 @@ static void InitDefaultsscc_info_GlassCalReply_grpc_5fglass_2eproto() {
   ::Xproject::GlassCalReply::InitAsDefaultInstance();
 }
 
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_GlassCalReply_grpc_5fglass_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_GlassCalReply_grpc_5fglass_2eproto}, {}};
+::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<1> scc_info_GlassCalReply_grpc_5fglass_2eproto =
+    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 1, 0, InitDefaultsscc_info_GlassCalReply_grpc_5fglass_2eproto}, {
+      &scc_info_grpc_CommonCalResult_grpc_5fcheckResult_2eproto.base,}};
 
 static void InitDefaultsscc_info_GlassRequest_grpc_5fglass_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
@@ -73,7 +75,7 @@ static void InitDefaultsscc_info_GlassRequest_grpc_5fglass_2eproto() {
       &scc_info_grpc_BasicParameters_grpc_5fbasicParameters_2eproto.base,}};
 
 static ::PROTOBUF_NAMESPACE_ID::Metadata file_level_metadata_grpc_5fglass_2eproto[3];
-static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_grpc_5fglass_2eproto[2];
+static const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* file_level_enum_descriptors_grpc_5fglass_2eproto[3];
 static constexpr ::PROTOBUF_NAMESPACE_ID::ServiceDescriptor const** file_level_service_descriptors_grpc_5fglass_2eproto = nullptr;
 
 const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_grpc_5fglass_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -93,7 +95,9 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_grpc_5fglass_2eproto::offsets[
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
-  PROTOBUF_FIELD_OFFSET(::Xproject::GlassCalReply, result_),
+  PROTOBUF_FIELD_OFFSET(::Xproject::GlassCalReply, calresults_),
+  PROTOBUF_FIELD_OFFSET(::Xproject::GlassCalReply, type_),
+  PROTOBUF_FIELD_OFFSET(::Xproject::GlassCalReply, description_),
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::Xproject::GlassBookReply, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -104,7 +108,7 @@ const ::PROTOBUF_NAMESPACE_ID::uint32 TableStruct_grpc_5fglass_2eproto::offsets[
 static const ::PROTOBUF_NAMESPACE_ID::internal::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, -1, sizeof(::Xproject::GlassRequest)},
   { 11, -1, sizeof(::Xproject::GlassCalReply)},
-  { 17, -1, sizeof(::Xproject::GlassBookReply)},
+  { 19, -1, sizeof(::Xproject::GlassBookReply)},
 };
 
 static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] = {
@@ -115,23 +119,29 @@ static ::PROTOBUF_NAMESPACE_ID::Message const * const file_default_instances[] =
 
 const char descriptor_table_protodef_grpc_5fglass_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\020grpc_glass.proto\022\010Xproject\032\032grpc_basic"
-  "Parameters.proto\"\372\002\n\014GlassRequest\0222\n\npar"
-  "ameters\030\001 \001(\0132\036.Xproject.grpc_BasicParam"
-  "eters\022\r\n\005width\030\002 \001(\001\022\016\n\006height\030\003 \001(\001\0221\n\003"
-  "mat\030\004 \001(\0162$.Xproject.GlassRequest.GlassM"
-  "aterial\022\021\n\tthickness\030\005 \001(\001\022.\n\004type\030\006 \001(\016"
-  "2 .Xproject.GlassRequest.GlassType\"x\n\tGl"
-  "assType\022\007\n\003ONE\020\000\022\n\n\006HOLLOW\020\001\022\014\n\010LAMINATE"
-  "\020\002\022\027\n\023HOLLOW_AND_LAMINATE\020\003\022\020\n\014DOUBLEHOL"
-  "LOW\020\004\022\035\n\031DOUBLELAMINATE_AND_HOLLOW\020\005\"\'\n\r"
-  "GlassMaterial\022\010\n\004FLAT\020\000\022\014\n\010TEMPERED\020\001\"\037\n"
-  "\rGlassCalReply\022\016\n\006result\030\001 \001(\t\" \n\016GlassB"
-  "ookReply\022\016\n\006result\030\001 \001(\t2L\n\ngrpc_Glass\022>"
-  "\n\tCalculate\022\026.Xproject.GlassRequest\032\027.Xp"
-  "roject.GlassCalReply\"\000b\006proto3"
+  "Parameters.proto\032\026grpc_checkResult.proto"
+  "\"\370\001\n\014GlassRequest\0222\n\nparameters\030\001 \001(\0132\036."
+  "Xproject.grpc_BasicParameters\022\r\n\005width\030\002"
+  " \001(\001\022\016\n\006height\030\003 \001(\001\0221\n\003mat\030\004 \001(\0162$.Xpro"
+  "ject.GlassRequest.GlassMaterial\022\021\n\tthick"
+  "ness\030\005 \003(\001\022&\n\004type\030\006 \001(\0162\030.Xproject.grpc"
+  "_GlassType\"\'\n\rGlassMaterial\022\010\n\004FLAT\020\000\022\014\n"
+  "\010TEMPERED\020\001\"\200\001\n\rGlassCalReply\0222\n\ncalResu"
+  "lts\030\001 \001(\0132\036.Xproject.grpc_CommonCalResul"
+  "t\022&\n\004type\030\002 \001(\0162\030.Xproject.grpc_GlassTyp"
+  "e\022\023\n\013description\030\003 \001(\t\" \n\016GlassBookReply"
+  "\022\016\n\006result\030\001 \001(\t*}\n\016grpc_GlassType\022\007\n\003ON"
+  "E\020\000\022\n\n\006HOLLOW\020\001\022\014\n\010LAMINATE\020\002\022\027\n\023HOLLOW_"
+  "AND_LAMINATE\020\003\022\020\n\014DOUBLEHOLLOW\020\004\022\035\n\031DOUB"
+  "LELAMINATE_AND_HOLLOW\020\005*=\n\035grpc_eOneGlas"
+  "sPanelResultType\022\014\n\010STRENGTH\020\000\022\016\n\nDEFLEC"
+  "TION\020\0012L\n\ngrpc_Glass\022>\n\tCalculate\022\026.Xpro"
+  "ject.GlassRequest\032\027.Xproject.GlassCalRep"
+  "ly\"\000b\006proto3"
   ;
-static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_grpc_5fglass_2eproto_deps[1] = {
+static const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable*const descriptor_table_grpc_5fglass_2eproto_deps[2] = {
   &::descriptor_table_grpc_5fbasicParameters_2eproto,
+  &::descriptor_table_grpc_5fcheckResult_2eproto,
 };
 static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_grpc_5fglass_2eproto_sccs[3] = {
   &scc_info_GlassBookReply_grpc_5fglass_2eproto.base,
@@ -141,8 +151,8 @@ static ::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase*const descriptor_table_grp
 static ::PROTOBUF_NAMESPACE_ID::internal::once_flag descriptor_table_grpc_5fglass_2eproto_once;
 static bool descriptor_table_grpc_5fglass_2eproto_initialized = false;
 const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_grpc_5fglass_2eproto = {
-  &descriptor_table_grpc_5fglass_2eproto_initialized, descriptor_table_protodef_grpc_5fglass_2eproto, "grpc_glass.proto", 590,
-  &descriptor_table_grpc_5fglass_2eproto_once, descriptor_table_grpc_5fglass_2eproto_sccs, descriptor_table_grpc_5fglass_2eproto_deps, 3, 1,
+  &descriptor_table_grpc_5fglass_2eproto_initialized, descriptor_table_protodef_grpc_5fglass_2eproto, "grpc_glass.proto", 772,
+  &descriptor_table_grpc_5fglass_2eproto_once, descriptor_table_grpc_5fglass_2eproto_sccs, descriptor_table_grpc_5fglass_2eproto_deps, 3, 2,
   schemas, file_default_instances, TableStruct_grpc_5fglass_2eproto::offsets,
   file_level_metadata_grpc_5fglass_2eproto, 3, file_level_enum_descriptors_grpc_5fglass_2eproto, file_level_service_descriptors_grpc_5fglass_2eproto,
 };
@@ -150,38 +160,9 @@ const ::PROTOBUF_NAMESPACE_ID::internal::DescriptorTable descriptor_table_grpc_5
 // Force running AddDescriptors() at dynamic initialization time.
 static bool dynamic_init_dummy_grpc_5fglass_2eproto = (  ::PROTOBUF_NAMESPACE_ID::internal::AddDescriptors(&descriptor_table_grpc_5fglass_2eproto), true);
 namespace Xproject {
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GlassRequest_GlassType_descriptor() {
-  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_grpc_5fglass_2eproto);
-  return file_level_enum_descriptors_grpc_5fglass_2eproto[0];
-}
-bool GlassRequest_GlassType_IsValid(int value) {
-  switch (value) {
-    case 0:
-    case 1:
-    case 2:
-    case 3:
-    case 4:
-    case 5:
-      return true;
-    default:
-      return false;
-  }
-}
-
-#if (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
-constexpr GlassRequest_GlassType GlassRequest::ONE;
-constexpr GlassRequest_GlassType GlassRequest::HOLLOW;
-constexpr GlassRequest_GlassType GlassRequest::LAMINATE;
-constexpr GlassRequest_GlassType GlassRequest::HOLLOW_AND_LAMINATE;
-constexpr GlassRequest_GlassType GlassRequest::DOUBLEHOLLOW;
-constexpr GlassRequest_GlassType GlassRequest::DOUBLELAMINATE_AND_HOLLOW;
-constexpr GlassRequest_GlassType GlassRequest::GlassType_MIN;
-constexpr GlassRequest_GlassType GlassRequest::GlassType_MAX;
-constexpr int GlassRequest::GlassType_ARRAYSIZE;
-#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* GlassRequest_GlassMaterial_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_grpc_5fglass_2eproto);
-  return file_level_enum_descriptors_grpc_5fglass_2eproto[1];
+  return file_level_enum_descriptors_grpc_5fglass_2eproto[0];
 }
 bool GlassRequest_GlassMaterial_IsValid(int value) {
   switch (value) {
@@ -200,6 +181,38 @@ constexpr GlassRequest_GlassMaterial GlassRequest::GlassMaterial_MIN;
 constexpr GlassRequest_GlassMaterial GlassRequest::GlassMaterial_MAX;
 constexpr int GlassRequest::GlassMaterial_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || _MSC_VER >= 1900)
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* grpc_GlassType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_grpc_5fglass_2eproto);
+  return file_level_enum_descriptors_grpc_5fglass_2eproto[1];
+}
+bool grpc_GlassType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+    case 3:
+    case 4:
+    case 5:
+      return true;
+    default:
+      return false;
+  }
+}
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* grpc_eOneGlassPanelResultType_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_grpc_5fglass_2eproto);
+  return file_level_enum_descriptors_grpc_5fglass_2eproto[2];
+}
+bool grpc_eOneGlassPanelResultType_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+      return true;
+    default:
+      return false;
+  }
+}
+
 
 // ===================================================================
 
@@ -229,7 +242,8 @@ GlassRequest::GlassRequest()
 }
 GlassRequest::GlassRequest(const GlassRequest& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
-      _internal_metadata_(nullptr) {
+      _internal_metadata_(nullptr),
+      thickness_(from.thickness_) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
   if (from._internal_has_parameters()) {
     parameters_ = new ::Xproject::grpc_BasicParameters(*from.parameters_);
@@ -273,6 +287,7 @@ void GlassRequest::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  thickness_.Clear();
   if (GetArenaNoVirtual() == nullptr && parameters_ != nullptr) {
     delete parameters_;
   }
@@ -319,19 +334,22 @@ const char* GlassRequest::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           _internal_set_mat(static_cast<::Xproject::GlassRequest_GlassMaterial>(val));
         } else goto handle_unusual;
         continue;
-      // double thickness = 5;
+      // repeated double thickness = 5;
       case 5:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41)) {
-          thickness_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr);
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 42)) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedDoubleParser(_internal_mutable_thickness(), ptr, ctx);
+          CHK_(ptr);
+        } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 41) {
+          _internal_add_thickness(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<double>(ptr));
           ptr += sizeof(double);
         } else goto handle_unusual;
         continue;
-      // .Xproject.GlassRequest.GlassType type = 6;
+      // .Xproject.grpc_GlassType type = 6;
       case 6:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 48)) {
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
           CHK_(ptr);
-          _internal_set_type(static_cast<::Xproject::GlassRequest_GlassType>(val));
+          _internal_set_type(static_cast<::Xproject::grpc_GlassType>(val));
         } else goto handle_unusual;
         continue;
       default: {
@@ -387,13 +405,12 @@ failure:
       4, this->_internal_mat(), target);
   }
 
-  // double thickness = 5;
-  if (!(this->thickness() <= 0 && this->thickness() >= 0)) {
-    target = stream->EnsureSpace(target);
-    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteDoubleToArray(5, this->_internal_thickness(), target);
+  // repeated double thickness = 5;
+  if (this->_internal_thickness_size() > 0) {
+    target = stream->WriteFixedPacked(5, _internal_thickness(), target);
   }
 
-  // .Xproject.GlassRequest.GlassType type = 6;
+  // .Xproject.grpc_GlassType type = 6;
   if (this->type() != 0) {
     target = stream->EnsureSpace(target);
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
@@ -416,6 +433,21 @@ size_t GlassRequest::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  // repeated double thickness = 5;
+  {
+    unsigned int count = static_cast<unsigned int>(this->_internal_thickness_size());
+    size_t data_size = 8UL * count;
+    if (data_size > 0) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
+            static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
+    }
+    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
+    _thickness_cached_byte_size_.store(cached_size,
+                                    std::memory_order_relaxed);
+    total_size += data_size;
+  }
+
   // .Xproject.grpc_BasicParameters parameters = 1;
   if (this->has_parameters()) {
     total_size += 1 +
@@ -433,18 +465,13 @@ size_t GlassRequest::ByteSizeLong() const {
     total_size += 1 + 8;
   }
 
-  // double thickness = 5;
-  if (!(this->thickness() <= 0 && this->thickness() >= 0)) {
-    total_size += 1 + 8;
-  }
-
   // .Xproject.GlassRequest.GlassMaterial mat = 4;
   if (this->mat() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_mat());
   }
 
-  // .Xproject.GlassRequest.GlassType type = 6;
+  // .Xproject.grpc_GlassType type = 6;
   if (this->type() != 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
@@ -481,6 +508,7 @@ void GlassRequest::MergeFrom(const GlassRequest& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
+  thickness_.MergeFrom(from.thickness_);
   if (from.has_parameters()) {
     _internal_mutable_parameters()->::Xproject::grpc_BasicParameters::MergeFrom(from._internal_parameters());
   }
@@ -489,9 +517,6 @@ void GlassRequest::MergeFrom(const GlassRequest& from) {
   }
   if (!(from.height() <= 0 && from.height() >= 0)) {
     _internal_set_height(from._internal_height());
-  }
-  if (!(from.thickness() <= 0 && from.thickness() >= 0)) {
-    _internal_set_thickness(from._internal_thickness());
   }
   if (from.mat() != 0) {
     _internal_set_mat(from._internal_mat());
@@ -522,10 +547,10 @@ bool GlassRequest::IsInitialized() const {
 void GlassRequest::InternalSwap(GlassRequest* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
+  thickness_.InternalSwap(&other->thickness_);
   swap(parameters_, other->parameters_);
   swap(width_, other->width_);
   swap(height_, other->height_);
-  swap(thickness_, other->thickness_);
   swap(mat_, other->mat_);
   swap(type_, other->type_);
 }
@@ -538,11 +563,24 @@ void GlassRequest::InternalSwap(GlassRequest* other) {
 // ===================================================================
 
 void GlassCalReply::InitAsDefaultInstance() {
+  ::Xproject::_GlassCalReply_default_instance_._instance.get_mutable()->calresults_ = const_cast< ::Xproject::grpc_CommonCalResult*>(
+      ::Xproject::grpc_CommonCalResult::internal_default_instance());
 }
 class GlassCalReply::_Internal {
  public:
+  static const ::Xproject::grpc_CommonCalResult& calresults(const GlassCalReply* msg);
 };
 
+const ::Xproject::grpc_CommonCalResult&
+GlassCalReply::_Internal::calresults(const GlassCalReply* msg) {
+  return *msg->calresults_;
+}
+void GlassCalReply::clear_calresults() {
+  if (GetArenaNoVirtual() == nullptr && calresults_ != nullptr) {
+    delete calresults_;
+  }
+  calresults_ = nullptr;
+}
 GlassCalReply::GlassCalReply()
   : ::PROTOBUF_NAMESPACE_ID::Message(), _internal_metadata_(nullptr) {
   SharedCtor();
@@ -552,16 +590,25 @@ GlassCalReply::GlassCalReply(const GlassCalReply& from)
   : ::PROTOBUF_NAMESPACE_ID::Message(),
       _internal_metadata_(nullptr) {
   _internal_metadata_.MergeFrom(from._internal_metadata_);
-  result_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (!from._internal_result().empty()) {
-    result_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.result_);
+  description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (!from._internal_description().empty()) {
+    description_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.description_);
   }
+  if (from._internal_has_calresults()) {
+    calresults_ = new ::Xproject::grpc_CommonCalResult(*from.calresults_);
+  } else {
+    calresults_ = nullptr;
+  }
+  type_ = from.type_;
   // @@protoc_insertion_point(copy_constructor:Xproject.GlassCalReply)
 }
 
 void GlassCalReply::SharedCtor() {
   ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_GlassCalReply_grpc_5fglass_2eproto.base);
-  result_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  description_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  ::memset(&calresults_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&type_) -
+      reinterpret_cast<char*>(&calresults_)) + sizeof(type_));
 }
 
 GlassCalReply::~GlassCalReply() {
@@ -570,7 +617,8 @@ GlassCalReply::~GlassCalReply() {
 }
 
 void GlassCalReply::SharedDtor() {
-  result_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  description_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (this != internal_default_instance()) delete calresults_;
 }
 
 void GlassCalReply::SetCachedSize(int size) const {
@@ -588,7 +636,12 @@ void GlassCalReply::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  result_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  description_.ClearToEmptyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
+  if (GetArenaNoVirtual() == nullptr && calresults_ != nullptr) {
+    delete calresults_;
+  }
+  calresults_ = nullptr;
+  type_ = 0;
   _internal_metadata_.Clear();
 }
 
@@ -599,12 +652,27 @@ const char* GlassCalReply::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
     CHK_(ptr);
     switch (tag >> 3) {
-      // string result = 1;
+      // .Xproject.grpc_CommonCalResult calResults = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-          auto str = _internal_mutable_result();
+          ptr = ctx->ParseMessage(_internal_mutable_calresults(), ptr);
+          CHK_(ptr);
+        } else goto handle_unusual;
+        continue;
+      // .Xproject.grpc_GlassType type = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 16)) {
+          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
+          CHK_(ptr);
+          _internal_set_type(static_cast<::Xproject::grpc_GlassType>(val));
+        } else goto handle_unusual;
+        continue;
+      // string description = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 26)) {
+          auto str = _internal_mutable_description();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
-          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Xproject.GlassCalReply.result"));
+          CHK_(::PROTOBUF_NAMESPACE_ID::internal::VerifyUTF8(str, "Xproject.GlassCalReply.description"));
           CHK_(ptr);
         } else goto handle_unusual;
         continue;
@@ -634,14 +702,29 @@ failure:
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  // string result = 1;
-  if (this->result().size() > 0) {
+  // .Xproject.grpc_CommonCalResult calResults = 1;
+  if (this->has_calresults()) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(
+        1, _Internal::calresults(this), target, stream);
+  }
+
+  // .Xproject.grpc_GlassType type = 2;
+  if (this->type() != 0) {
+    target = stream->EnsureSpace(target);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
+      2, this->_internal_type(), target);
+  }
+
+  // string description = 3;
+  if (this->description().size() > 0) {
     ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::VerifyUtf8String(
-      this->_internal_result().data(), static_cast<int>(this->_internal_result().length()),
+      this->_internal_description().data(), static_cast<int>(this->_internal_description().length()),
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::SERIALIZE,
-      "Xproject.GlassCalReply.result");
+      "Xproject.GlassCalReply.description");
     target = stream->WriteStringMaybeAliased(
-        1, this->_internal_result(), target);
+        3, this->_internal_description(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -660,11 +743,24 @@ size_t GlassCalReply::ByteSizeLong() const {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // string result = 1;
-  if (this->result().size() > 0) {
+  // string description = 3;
+  if (this->description().size() > 0) {
     total_size += 1 +
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_result());
+        this->_internal_description());
+  }
+
+  // .Xproject.grpc_CommonCalResult calResults = 1;
+  if (this->has_calresults()) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *calresults_);
+  }
+
+  // .Xproject.grpc_GlassType type = 2;
+  if (this->type() != 0) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::EnumSize(this->_internal_type());
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -698,9 +794,15 @@ void GlassCalReply::MergeFrom(const GlassCalReply& from) {
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
-  if (from.result().size() > 0) {
+  if (from.description().size() > 0) {
 
-    result_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.result_);
+    description_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.description_);
+  }
+  if (from.has_calresults()) {
+    _internal_mutable_calresults()->::Xproject::grpc_CommonCalResult::MergeFrom(from._internal_calresults());
+  }
+  if (from.type() != 0) {
+    _internal_set_type(from._internal_type());
   }
 }
 
@@ -725,8 +827,10 @@ bool GlassCalReply::IsInitialized() const {
 void GlassCalReply::InternalSwap(GlassCalReply* other) {
   using std::swap;
   _internal_metadata_.Swap(&other->_internal_metadata_);
-  result_.Swap(&other->result_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
+  description_.Swap(&other->description_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
     GetArenaNoVirtual());
+  swap(calresults_, other->calresults_);
+  swap(type_, other->type_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata GlassCalReply::GetMetadata() const {

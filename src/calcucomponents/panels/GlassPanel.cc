@@ -148,7 +148,7 @@ CheckResults GlassPanel::CheckStrength(double thickness,GlassLoadCombination &co
 	CheckResults results;
 	results.m_CalValue=CalGlassMaxStress(thickness,q,qk);
 	results.m_DesignValue=GlassStrengthDesignValue(m_params->m_eMat,thickness);
-	results.m_eResult=(results.m_CalValue<=results.m_DesignValue)?CheckResults::PASS:CheckResults::Fail;
+	results.m_eResult=(results.m_CalValue<=results.m_DesignValue)?CheckResults::PASS:CheckResults::FAIL;
 	results.m_Surplus=(results.m_DesignValue-results.m_CalValue)*100/results.m_DesignValue;
 
 	return results;
@@ -214,7 +214,7 @@ CheckResults GlassPanel::CheckDeflection(double thickness,GlassLoadCombination &
 	results.m_CalValue=CalMaxDeflection(thickness,w_k);
 	double shortSide=(m_params->m_width<=m_params->m_height)?m_params->m_width:m_params->m_height;//(mm)
 	results.m_DesignValue=shortSide/60;
-	results.m_eResult=(results.m_CalValue<=results.m_DesignValue)?CheckResults::PASS:CheckResults::Fail;
+	results.m_eResult=(results.m_CalValue<=results.m_DesignValue)?CheckResults::PASS:CheckResults::FAIL;
 	results.m_Surplus=(results.m_DesignValue-results.m_CalValue)*100/results.m_DesignValue;
 
 	return results;

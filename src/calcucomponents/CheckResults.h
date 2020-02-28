@@ -13,7 +13,7 @@ struct CheckResults
 	enum eResult
 	{
 		PASS=0,
-		Fail=1,
+		FAIL=1,
 	};
 
 	eResult m_eResult;//jie guo
