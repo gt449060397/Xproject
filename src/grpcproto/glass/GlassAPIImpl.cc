@@ -1,9 +1,11 @@
 #include "GlassAPIImpl.h"
 #include "grpc_basicParameters.pb.h"
+#include "grpc_checkResult.pb.h"
 #include "GLogHelper.h"
 #include "ICalItemRegistrar.h"
 #include "OneGlassPanel.h"
 #include <memory>
+#include "CommonCalResult.h"
 
 Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *request, GlassCalReply* response)
 {
@@ -53,6 +55,19 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 			if(result)
 			{
 				response->set_description("Ok");
+				response->set_type(request->type());
+				//results
+				auto oneGlassResult=std::dynamic_pointer_cast<CommonCalResult>(result);
+				grpc_CommonCalResult commonResult;
+				grpc_CheckResults *check;
+				for(auto iter:oneGlassResult.m_CheckResults)
+				{
+					check=commonResult.add_m_checkresults();
+					check-set_m_eresult((int)iter->m_eResult);
+
+					
+				}
+
 
 				LOG(INFO)<<"glass calculate success!";
 				grpcStatus= Status::OK;
