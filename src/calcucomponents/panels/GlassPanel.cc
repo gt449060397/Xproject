@@ -1,11 +1,13 @@
 
 #include "GlassPanel.h"
 #include <math.h>
+#include "GLogHelper.h"
 
 const double GlassPanel::m_gravityDensity=25.6;
 const double GlassPanel::m_Eglass=72000000;
 double GlassPanel::CalReductionFactor(double theta)
 {
+	LOG(INFO)<<"CalReductionFactor";
 	double reductionFactor=0;
 	if (theta<=5.0)
 		reductionFactor = 1.0;
@@ -42,6 +44,7 @@ double GlassPanel::CalReductionFactor(double theta)
 
 double GlassPanel::CalBendingMomnentFactor(double shortAndlongSideRatio)
 {
+	LOG(INFO)<<"CalBendingMomnentFactor";
 	double bendingMomFactor = 0;
 	if (shortAndlongSideRatio <= 0)
 		bendingMomFactor = 0.1250;
@@ -78,6 +81,7 @@ double GlassPanel::CalBendingMomnentFactor(double shortAndlongSideRatio)
 
 double GlassPanel::GlassStrengthDesignValue(GlassParameters::GlassMaterial mat,double thickness)
 {
+	LOG(INFO)<<"GlassStrengthDesignValue";
 	double strengthValue=0;
 	switch (mat)
 	{
@@ -115,13 +119,14 @@ double GlassPanel::GlassStrengthDesignValue(GlassParameters::GlassMaterial mat,d
 
 double GlassPanel::Caltheta(double q_k,double shortSide,double thickness)
 {
-
+	LOG(INFO)<<"Caltheta";
 	double theta=q_k*pow(shortSide,4)/(m_Eglass*pow(thickness,4));
 	return theta;
 }
 
 double GlassPanel::CalShortAndLongSideRatio()
 {
+	LOG(INFO)<<"CalShortAndLongSideRatio";
 	double shortSide=(m_params->m_width<=m_params->m_height)?m_params->m_width:m_params->m_height;
 	double longSide=(m_params->m_width<=m_params->m_height)?m_params->m_height:m_params->m_width;
 
@@ -130,6 +135,7 @@ double GlassPanel::CalShortAndLongSideRatio()
 
 double GlassPanel::CalGlassMaxStress(double thickness,double q,double q_k)
 {
+	LOG(INFO)<<"CalGlassMaxStress";
 	double bendingMomFactor=CalBendingMomnentFactor(CalShortAndLongSideRatio());
 	double shortSide=(m_params->m_width<=m_params->m_height)?m_params->m_width:m_params->m_height;
 	double theta=Caltheta(q_k,shortSide,thickness);
@@ -142,6 +148,7 @@ double GlassPanel::CalGlassMaxStress(double thickness,double q,double q_k)
 
 CheckResults GlassPanel::CheckStrength(double thickness,GlassLoadCombination &combination)
 {
+	LOG(INFO)<<"CheckStrength";
 	double qk=combination.LoadEffectCombination(LoadCombination::STANDARD);
 	double q=combination.LoadEffectCombination(LoadCombination::DESIGN);
 
@@ -157,6 +164,7 @@ CheckResults GlassPanel::CheckStrength(double thickness,GlassLoadCombination &co
 
 double GlassPanel::CalDeflectionFactor(double shortAndlongSideRatio)
 {
+	LOG(INFO)<<"CalDeflectionFactor";
 	double deflectionFactor=0;
 	if (shortAndlongSideRatio <= 0)
 		deflectionFactor = 0.01302;
@@ -194,7 +202,7 @@ double GlassPanel::CalDeflectionFactor(double shortAndlongSideRatio)
 
 double GlassPanel::CalMaxDeflection(double thickness,double w_k)
 {
-
+	LOG(INFO)<<"CalMaxDeflection";
 	double deflectionFactor=CalDeflectionFactor(CalShortAndLongSideRatio());
 	double shortSide=(m_params->m_width<=m_params->m_height)?m_params->m_width:m_params->m_height;
 	double theta=Caltheta(w_k,shortSide,thickness);
@@ -209,6 +217,7 @@ double GlassPanel::CalMaxDeflection(double thickness,double w_k)
 
 CheckResults GlassPanel::CheckDeflection(double thickness,GlassLoadCombination &combination)
 {
+	LOG(INFO)<<"CheckDeflection";
 	double w_k=combination.GetWindLoad().CalNominalValue();
 	CheckResults results;
 	results.m_CalValue=CalMaxDeflection(thickness,w_k);

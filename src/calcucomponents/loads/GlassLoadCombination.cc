@@ -5,6 +5,7 @@
 
 double GlassLoadCombination::LoadEffectCombination(CombinationType type)
 {
+	LOG(INFO)<<"LoadEffectCombination";
 	switch(type)
 	{
 		case DESIGN:

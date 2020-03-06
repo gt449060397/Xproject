@@ -12,6 +12,7 @@
 
 double WindLoad::CalNominalValue()
 {
+	LOG(INFO)<<"CalNominalValue";
 	//1 zheng feng xi shu
 	CalGustCoefficient();
 	//2 gao du bian hua xi shu
@@ -34,6 +35,8 @@ double WindLoad::CalNominalValue()
 
 void WindLoad::CalGustCoefficient()
 {
+
+	LOG(INFO)<<"CalGustCoefficient";
 	double height=CalTruncatedHeight();
 	switch(m_parameters.m_eSiteType)
 	{
@@ -59,6 +62,8 @@ void WindLoad::CalGustCoefficient()
 
 void WindLoad::CalHeightVariationCoefficient()
 {
+
+	LOG(INFO)<<"CalHeightVariationCoefficient";
 	double height=CalTruncatedHeight();
 	switch(m_parameters.m_eSiteType)
 	{
@@ -84,6 +89,8 @@ void WindLoad::CalHeightVariationCoefficient()
 
 double WindLoad::CalTruncatedHeight()
 {
+
+	LOG(INFO)<<"CalTruncatedHeight";
 	double truncatedHeight=m_parameters.m_calHeight;
 	switch(m_parameters.m_eSiteType)
 	{
@@ -113,6 +120,7 @@ double WindLoad::CalTruncatedHeight()
 
 double WindLoad::Calu_sl(const CalPart calPart,double area)
 {
+	LOG(INFO)<<"Calu_sl";
 	double u_sl=0;
 
 	switch(calPart)
@@ -134,6 +142,8 @@ double WindLoad::Calu_sl(const CalPart calPart,double area)
 
 double WindLoad::Calu_sl_panel()
 {
+
+	LOG(INFO)<<"Calu_sl_panel";
 	double u_sl=0;
 	switch(m_parameters.m_eCalArea)
 	{
@@ -154,6 +164,8 @@ double WindLoad::Calu_sl_panel()
 
 double WindLoad::Calu_sl_supportStucture(double area)
 {
+
+	LOG(INFO)<<"Calu_sl_supportStucture";
 	double u_sl=0;
 	switch(m_parameters.m_eCalArea)
 	{

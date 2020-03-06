@@ -1,21 +1,29 @@
 #include "GlassParameters.h"
-#include "grpc_basicParameters.pb.h"
 
 const std::string GlassParameters::GlassTypeStrs[]={"ONE","HOLLOW","LAMINATE","HOLLOW_AND_LAMINATE","DOUBLEHOLLOW","DOUBLELAMINATE_AND_HOLLOW"};
 
-GlassParameters::GlassParameters(const GlassRequest *pGlassRequest)
+GlassParameters::GlassParameters(const GlassRequest *pGlassRequest):BasicParameters(pGlassRequest->parameters())
 {
-
-	Xproject::grpc_BasicParameters basicParams=pGlassRequest->parameters();
-	m_w0=basicParams.w0();
-	m_eDesignYears=DesignYears(basicParams.m_edesignyears());
-	m_eSiteType=SiteType(basicParams.m_esitetype());
-	m_eCalArea=CalculateArea(basicParams.m_ecalarea());
-	m_eSeismicFort=SeismicFortification(basicParams.m_eseismicfort());
-	m_eSeismicSiteType=SeismicSiteType(basicParams.m_eseismicsitetype());
-	m_u_sl=basicParams.m_u_sl();
-	m_WindLoadNominalValue=basicParams.m_windloadnominalvalue();
-	m_alpha_max=basicParams.m_alpha_max();
-
+	m_height=pGlassRequest->height();
+	m_width=pGlassRequest->width();
 	m_eMat=GlassMaterial(pGlassRequest->mat());
+
+	for(auto i=0;i<pGlassRequest->thickness_size();i++)
+	{
+		m_thickness.push_back(pGlassRequest->thickness(i));
+	}
+}
+
+void GlassParameters::print()
+{
+	::BasicParameters::print();
+	LOG(INFO)<<" m_height= "<<m_height;
+	LOG(INFO)<<" m_width= "<<m_width;
+	LOG(INFO)<<" m_eMat="<<m_eMat;
+	for(auto iter:m_thickness)
+	{
+		LOG(INFO)<<" thickness= "<<iter;
+	}
+
+
 }

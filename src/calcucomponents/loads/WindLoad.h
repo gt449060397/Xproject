@@ -8,6 +8,7 @@
 #pragma once
 
 #include "../BasicParameters.h"
+#include "GLogHelper.h"
 class WindLoad
 {
 

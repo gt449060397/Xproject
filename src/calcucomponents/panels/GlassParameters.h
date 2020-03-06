@@ -45,4 +45,6 @@ struct GlassParameters:public BasicParameters
 	std::vector<double>m_thickness;//bo li hou du (mm) (out->in)
 
 	static const std::string GlassTypeStrs[6];
+
+	virtual void print()override;
 };

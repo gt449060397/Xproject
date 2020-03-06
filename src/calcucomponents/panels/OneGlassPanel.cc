@@ -7,12 +7,15 @@
 
 ResultBase* OneGlassPanel::Calculate(std::shared_ptr<BasicParameters> param)
 {
+	LOG(INFO)<<"Calculate";
 	try
 	{
 		m_params=std::dynamic_pointer_cast<GlassParameters>(param);
 		//wind load
 		WindLoad windLoad(*param,WindLoad::PANEL);
 		//di zheng zuo yong
+
+		LOG(INFO)<<"thickness size= "<<m_params->m_thickness.size();
 		double gkA=m_gravityDensity*m_params->m_thickness[0]/1000;
 		SeismicEffect seismicEffect(m_params->m_alpha_max,gkA);
 		//dead load

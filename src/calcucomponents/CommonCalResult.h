@@ -7,6 +7,16 @@
 
 struct CommonCalResult:public ResultBase
 {
-   std::vector<CheckResults>m_CheckResults;
+	CommonCalResult(){}
+	virtual ~CommonCalResult(){}
+	std::vector<CheckResults>m_CheckResults;
+
+	void print()
+	{
+		for(auto iter :m_CheckResults)
+		{
+			iter.print();
+		}
+	}
 
 };

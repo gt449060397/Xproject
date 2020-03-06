@@ -6,33 +6,13 @@
 #include "OneGlassPanel.h"
 #include <memory>
 #include "CommonCalResult.h"
+#include "Utils.h"
 
 Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *request, GlassCalReply* response)
 {
 	try
 	{
 		Xproject::grpc_BasicParameters requestparams=request->parameters();
-
-		LOG(INFO)<<"requestparams w0= "<<requestparams.w0();
-		LOG(INFO)<<"requestparams m_edesignyears= "<<requestparams.m_edesignyears();
-		LOG(INFO)<<"requestparams m_esitetype= "<<requestparams.m_esitetype();
-		LOG(INFO)<<"requestparams m_ecalarea= "<<requestparams.m_ecalarea();
-		LOG(INFO)<<"requestparams m_ewindcalmethod= "<<requestparams.m_ewindcalmethod();
-		LOG(INFO)<<"requestparams m_eseismicfort= "<<requestparams.m_eseismicfort();
-		LOG(INFO)<<"requestparams m_eseismicsitetype= "<<requestparams.m_eseismicsitetype();
-		LOG(INFO)<<"requestparams m_u_sl= "<<requestparams.m_u_sl();
-		LOG(INFO)<<"requestparams m_alpha_max= "<<requestparams.m_alpha_max();
-		LOG(INFO)<<"requestparams m_windloadnominalvalue= "<<requestparams.m_windloadnominalvalue();
-		LOG(INFO)<<"requestparams height= "<<request->height();
-		LOG(INFO)<<"requestparams width= "<<request->width();
-
-		LOG(INFO)<<"requestparams thickness_size= "<<request->thickness_size();
-		for(int i=0;i<request->thickness_size();i++)
-		{
-			LOG(INFO)<<"requestparams thickness index= "<<i<<"thickness value"<<request->thickness(i);
-		}
-		LOG(INFO)<<"requestparams mat= "<<request->mat();
-		LOG(INFO)<<"requestparams type= "<<request->type();
 
 		LOG(INFO)<<"glassType: "<<GlassParameters::GlassTypeStrs[request->type()];
 		//1 Create glass instence
@@ -49,6 +29,7 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 		{
 			//2 Create parameters
 			std::shared_ptr<BasicParameters>params(new GlassParameters(request));
+			params->print();
 
 			//3 Calculate
 			std::shared_ptr<ResultBase>result(glassInstance->Calculate(params));
@@ -57,15 +38,32 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 				response->set_description("Ok");
 				response->set_type(request->type());
 				//results
-				auto oneGlassResult=std::dynamic_pointer_cast<CommonCalResult>(result);
-				grpc_CommonCalResult commonResult;
-				grpc_CheckResults *check;
-				for(auto iter:oneGlassResult.m_CheckResults)
-				{
-					check=commonResult.add_m_checkresults();
-					check-set_m_eresult((int)iter->m_eResult);
+				std::shared_ptr<CommonCalResult> oneGlassResult=std::dynamic_pointer_cast<CommonCalResult>(result);
 
-					
+				//print results
+				oneGlassResult->print();
+				Xproject::grpc_CommonCalResult *pCommonResult=new Xproject::grpc_CommonCalResult();
+				Xproject::grpc_CheckResults *check;
+				for(auto iter:oneGlassResult->m_CheckResults)
+				{
+					check=pCommonResult->add_m_checkresults();
+					check->set_m_eresult(Xproject::grpc_CheckResults_eResult((int)iter.m_eResult));
+					check->set_m_designvalue(Utils::Round(iter.m_DesignValue,3));
+					check->set_m_calvalue(Utils::Round(iter.m_CalValue,3));
+					check->set_m_surplus(Utils::Round(iter.m_Surplus,3));
+					check->set_m_checktpye(iter.m_CheckType);
+				}
+
+				response->set_allocated_calresults(pCommonResult);
+
+				for(auto i=0;i<response->calresults().m_checkresults_size();i++)
+				{
+					LOG(INFO)<<"m_eresult="<<response->calresults().m_checkresults(i).m_eresult();
+					LOG(INFO)<<"m_designvalue="<<response->calresults().m_checkresults(i).m_designvalue();
+					LOG(INFO)<<"m_calvalue="<<response->calresults().m_checkresults(i).m_calvalue();
+					LOG(INFO)<<"surplus="<<response->calresults().m_checkresults(i).m_surplus();
+					LOG(INFO)<<"checktpye="<<response->calresults().m_checkresults(i).m_checktpye();
+
 				}
 
 
@@ -79,6 +77,8 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 				grpcStatus=  Status::OK;
 			}
 		}
+
+		LOG(INFO)<<"glass calculate finish!";
 		return grpcStatus;
 	}
 	catch(...)
@@ -86,6 +86,8 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 		LOG(ERROR)<<"glass calculate exception!";
 		return Status::CANCELLED;
 	}
+
 }
+
 
 
