@@ -17,13 +17,13 @@ CC_SRC=$(wildcard grpcproto/startX/*.cc grpcproto/parameters/*.cc grpcproto/glas
 CC_OBJ=$(patsubst %.cc, ./build/%.o, $(CC_SRC))
 
 #include_dir
-INC_DIR= -I./ -I ../export/glog/ -I ../export/jsonCpp/ -I ../export/tinyxml/ -I ../export/xmlConfig/ -I ./grpcproto/startX/ -I ./grpcproto/glass/ -I ./grpcproto/parameters/ -I ./loghelper/ -I ./calcucomponents/ -I ./calcucomponents/columns/ -I ./calcucomponents/connectors/ -I ./calcucomponents/crossbeams/ -I ./calcucomponents/embedded/ -I ./calcucomponents/gums/ -I ./calcucomponents/loads/ -I ./calcucomponents/panels/ -I ./calcucomponents/factorys/ -I ./util/
+INC_DIR= -I./ -I ../export/glog/ -I ../export/grpcpp/ -I ../export/grpc++/ -I ../export/grpc/ -I ../export/google/ -I ../export/jsonCpp/ -I ../export/tinyxml/ -I ../export/xmlConfig/ -I ./grpcproto/startX/ -I ./grpcproto/glass/ -I ./grpcproto/parameters/ -I ./loghelper/ -I ./calcucomponents/ -I ./calcucomponents/columns/ -I ./calcucomponents/connectors/ -I ./calcucomponents/crossbeams/ -I ./calcucomponents/embedded/ -I ./calcucomponents/gums/ -I ./calcucomponents/loads/ -I ./calcucomponents/panels/ -I ./calcucomponents/factorys/ -I ./util/
 
 #lib_dir
-LIB_DIR=-L ../libs -L ../libs/glog/suse$(BIT) -L ../libs/glog/ -L ../libs/tinyxml/ -L ../libs/xmlConfig/ -L ../libs/jsonCpp/suse$(BIT)
+LIB_DIR=-L ../libs -L ../libs/glog/suse$(BIT) -L ../libs/glog/ -L ../libs/tinyxml/ -L ../libs/xmlConfig/ -L ../libs/jsonCpp/suse$(BIT) -L ../libs/grpc/
 
 #libs
-LIBS=-lxmlConfig$(BIT) -ljsonCpp -lglog -llog4cxx -ltinyxml$(BIT) -lapr -laprutil 
+LIBS=-lxmlConfig$(BIT) -ljsonCpp -lglog  -ltinyxml$(BIT) -lapr -laprutil 
 
 
 CPPFLAGS += $(INC_DIR) -D_VERSION=$(VERSION) -Wno-deprecated
