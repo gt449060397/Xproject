@@ -5,12 +5,12 @@
 
 void RegisterCalItems:: RegiterGlassItems()
 {
-
-	LOG(INFO)<<"registerItems";
+	LOG(INFO)<<"registerGlassItems";
 	static	CalItemRegistrar<CalculateItem,OneGlassPanel>oneGlassPanel(GlassParameters::GlassTypeStrs[GlassParameters::ONE]);
 }
 void RegisterCalItems::RegiterAllItems()
 {
+	LOG(INFO)<<"registerCalItems";
 	RegiterGlassItems();
 }
 

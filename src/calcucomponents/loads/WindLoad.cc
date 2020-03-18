@@ -27,6 +27,8 @@ double WindLoad::CalNominalValue()
 		case BasicParameters::CUSTOMIZE:
 			nominalValue=m_parameters.m_WindLoadNominalValue;
 			break;
+		case BasicParameters::ACTUALCAL:
+			break;
 	}
 	
 	return nominalValue;

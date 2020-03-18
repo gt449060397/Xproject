@@ -13,6 +13,8 @@
 class CalculateItem
 {
 	public:
+		CalculateItem(){}
+		virtual ~CalculateItem(){}
 		//item check
 		virtual ResultBase* Calculate(std::shared_ptr<BasicParameters>params)=0;
 

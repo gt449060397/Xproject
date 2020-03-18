@@ -12,8 +12,6 @@ Status GlassAPIImpl::Calculate(ServerContext* context, const GlassRequest *reque
 {
 	try
 	{
-		Xproject::grpc_BasicParameters requestparams=request->parameters();
-
 		LOG(INFO)<<"glassType: "<<GlassParameters::GlassTypeStrs[request->type()];
 		//1 Create glass instence
 		std::shared_ptr<CalculateItem>glassInstance(CalItemFactory<CalculateItem>::Instance().GetCalItem(GlassParameters::GlassTypeStrs[request->type()]));
