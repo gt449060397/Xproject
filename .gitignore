@@ -33,6 +33,8 @@
 
 *.swp
 *.swo
+*.tar
+*.gz
 
 tags
 bin
