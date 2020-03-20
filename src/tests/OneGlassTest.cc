@@ -1,13 +1,13 @@
 #include "OneGlassTest.h"
 #include "grpc_checkResult.pb.h"
 #include "GLogHelper.h"
-#include "grpc_basicParameters.pb.h"
 using grpc::Channel;
 using grpc::ClientContext;
 using grpc::Status;
 
 bool OneGlassTest::Test() 
 {
+	LOG(INFO)<<"Test() ";
 	replyVec_.clear();
 
 	bool isDataReady=Test_DataPrepare();
@@ -15,7 +15,7 @@ bool OneGlassTest::Test()
 	{
 		for(auto temp:dataVec_)
 		{
-			Xproject::GlassCalReply *reply;
+			Xproject::GlassCalReply *reply=new Xproject::GlassCalReply();
 
 			ClientContext context;
 
@@ -53,12 +53,37 @@ bool OneGlassTest::Test()
 
 bool OneGlassTest::Test_DataPrepare()
 {
+	LOG(INFO)<<"Test_DataPrepare() ";
+	for(auto i=0;i<2;i++)
+	{
+		Xproject::grpc_BasicParameters *basiceParams=new Xproject::grpc_BasicParameters();
+		basiceParams->set_w0(0.3);
+		basiceParams->set_m_edesignyears(Xproject::grpc_BasicParameters::FIFTY);
+		basiceParams->set_m_esitetype(Xproject::grpc_BasicParameters::A);
+		basiceParams->set_m_ecalarea(Xproject::grpc_BasicParameters::Wall);
+		basiceParams->set_m_ewindcalmethod(Xproject::grpc_BasicParameters::LOADCODE);
+		basiceParams->set_m_eseismicfort(Xproject::grpc_BasicParameters::STANDARD);
+		basiceParams->set_m_eseismicsitetype(Xproject::grpc_BasicParameters::I0);
+		basiceParams->set_m_u_sl(1.0);
+		basiceParams->set_m_windloadnominalvalue(1.0);
+		basiceParams->set_m_alpha_max(0.08);
+		basiceParams->set_m_calheight(50);
 
-	Xproject::grpc_BasicParameters *basiceParams=new Xproject::grpc_BasicParameters();
-	basiceParams->set_w0(0.3);
-	basiceParams->set_m_edesignyears(Xproject::grpc_BasicParameters::FIFTY);
-	basiceParams->set_m_esitetype(Xproject::grpc_BasicParameters::A);
+		Xproject::GlassRequest request;
+		request.set_allocated_parameters(basiceParams);
+		request.set_width(600);
+		request.set_height(800);
+		request.set_mat(Xproject::GlassRequest::TEMPERED);
+		request.add_thickness(10);
+		request.set_type(Xproject::ONE);
 
 
-	return false;
+		dataVec_.push_back(request);
+
+		auto res=new Xproject::GlassCalReply();
+		//test
+		correctResults_.push_back(res);
+	}
+	
+	return true;
 }

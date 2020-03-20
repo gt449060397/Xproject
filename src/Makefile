@@ -28,8 +28,10 @@ INC_DIR= -I./ -I ../export/ -I ../export/glog/ -I ../export/grpcpp/ -I ../export
 LIB_DIR=-L ../libs -L ../libs/glog/suse$(BIT) -L ../libs/glog/ -L ../libs/tinyxml/ -L ../libs/xmlConfig/ -L ../libs/jsonCpp/suse$(BIT) -L ../libs/grpc/
 
 #libs
-LIBS=-lxmlConfig$(BIT) -ljsonCpp -lglog  -ltinyxml$(BIT) -lgrpc -lgrpc++ -lgrpc++_alts -lgrpc_cronet -lgrpc++_error_details -lgrpcpp_channelz -lgrpc++_reflection -lgrpc++_unsecure -lgrpc_unsecure\
-    -lprotobuf -lprotobuf-lite -lprotoc  
+LIBS=-lxmlConfig$(BIT) -ljsonCpp -lglog  -ltinyxml$(BIT) \
+     -lgrpcpp_channelz -lgrpc++_reflection -lgrpc++_unsecure -lprotobuf -lgrpc_unsecure\
+     -lgrpc -lgrpc++ -lgrpc++_alts -lgrpc_cronet -lgrpc++_error_details\
+     -lprotobuf-lite -lprotoc  
 
 
 CPPFLAGS += $(INC_DIR) -D_VERSION=$(VERSION) -Wno-deprecated
